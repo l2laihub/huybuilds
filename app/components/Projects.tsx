@@ -93,6 +93,15 @@ const projects: Project[] = [
     url: "https://portraitsai.app",
     Logo: PortraitsAILogo,
   },
+  {
+    title: "ClockFlow",
+    description:
+      "Time tracking application for freelancers and teams. Track hours, manage projects, and generate reports with ease.",
+    tags: ["Productivity", "React", "Supabase"],
+    metrics: [],
+    url: "https://clockflow.app",
+    Logo: ClockFlowLogo,
+  },
 ];
 
 export function Projects() {
