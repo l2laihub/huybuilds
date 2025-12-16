@@ -48,11 +48,11 @@ const projects: Project[] = [
   {
     title: "RollFlow",
     description:
-      "BJJ gym management platform processing real membership revenue. Automated operations from attendance to billing for martial arts academies.",
+      "BJJ gym management platform with intelligent tournament analytics, SmoothComp integration, automated billing, and comprehensive member management.",
     tags: ["SaaS", "React", "Stripe", "Supabase"],
     metrics: [
-      { value: 87, suffix: "+", label: "Active Members" },
-      { value: 13, prefix: "$", suffix: "K/mo", label: "Revenue Processed" },
+      { label: "SmoothComp Integration" },
+      { label: "Tournament Analytics" },
     ],
     url: "https://rollflow.app",
     Logo: RollFlowLogo,
