@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CountUpProps {
   value: number;
@@ -15,11 +15,12 @@ export function CountUp({
   value,
   suffix = "",
   prefix = "",
-  duration = 2,
   className = "",
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  // Use amount instead of margin for better mobile support
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   const spring = useSpring(0, {
     damping: 30,
@@ -31,10 +32,26 @@ export function CountUp({
   );
 
   useEffect(() => {
-    if (isInView) {
-      spring.set(value);
+    if (isInView && !hasAnimated) {
+      // Small delay to ensure component is mounted
+      const timer = setTimeout(() => {
+        spring.set(value);
+        setHasAnimated(true);
+      }, 100);
+      return () => clearTimeout(timer);
     }
-  }, [isInView, spring, value]);
+  }, [isInView, spring, value, hasAnimated]);
+
+  // Fallback: if still not animated after mount, trigger it
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      if (!hasAnimated) {
+        spring.set(value);
+        setHasAnimated(true);
+      }
+    }, 1500);
+    return () => clearTimeout(fallbackTimer);
+  }, [spring, value, hasAnimated]);
 
   return (
     <span ref={ref} className={className}>
