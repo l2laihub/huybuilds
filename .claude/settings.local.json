@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(frontend-design)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm --yes)",
+      "Bash(curl:*)",
+      "Bash(npm run build:*)",
+      "Bash(NEXT_TURBO=false npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(npx next build)",
+      "Bash(ls -la \"u:\\home\\l2laihub\\Projects\\huybuilds\\public\"\" 2>/dev/null || dir \"u:homel2laihubProjectshuybuildspublic \")"
+    ]
+  }
+}

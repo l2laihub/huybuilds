@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#0a0a0b" stroke="#27272a" stroke-width="2"/>
+
+  <!-- Terminal bracket > -->
+  <path d="M18 24L28 32L18 40" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Cursor/underscore -->
+  <path d="M32 38H46" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Code dots representing "builds" -->
+  <circle cx="36" cy="28" r="2" fill="#4ade80"/>
+  <circle cx="42" cy="28" r="2" fill="#60a5fa"/>
+  <circle cx="48" cy="28" r="2" fill="#a78bfa"/>
+</svg>
