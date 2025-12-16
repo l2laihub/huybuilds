@@ -11,6 +11,7 @@ import {
   ABLMeditationLogo,
   PortraitsAILogo,
   ClockFlowLogo,
+  FigurifyLogo,
 } from "./icons/ProjectLogos";
 import { ComponentType } from "react";
 
@@ -101,6 +102,15 @@ const projects: Project[] = [
     metrics: [],
     url: "https://clockflow.app",
     Logo: ClockFlowLogo,
+  },
+  {
+    title: "Figurify",
+    description:
+      "Transform your photos into custom action figures with AI. Create unique collectible-style figures from any portrait.",
+    tags: ["AI", "Image Gen", "React"],
+    metrics: [],
+    url: "https://figurify.app",
+    Logo: FigurifyLogo,
   },
 ];
 

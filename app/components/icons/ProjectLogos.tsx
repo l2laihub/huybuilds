@@ -149,3 +149,25 @@ export function ClockFlowLogo({ className = "" }: LogoProps) {
     </svg>
   );
 }
+
+// Figurify - Action Figure/Toy themed
+export function FigurifyLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Figure body */}
+      <circle cx="32" cy="18" r="8" fill="#f59e0b" />
+      {/* Torso */}
+      <rect x="26" y="26" width="12" height="16" rx="2" fill="#f59e0b" />
+      {/* Arms */}
+      <rect x="16" y="28" width="10" height="4" rx="2" fill="#f59e0b" />
+      <rect x="38" y="28" width="10" height="4" rx="2" fill="#f59e0b" />
+      {/* Legs */}
+      <rect x="26" y="42" width="5" height="12" rx="2" fill="#f59e0b" />
+      <rect x="33" y="42" width="5" height="12" rx="2" fill="#f59e0b" />
+      {/* Packaging box outline */}
+      <rect x="10" y="8" width="44" height="48" rx="3" stroke="#60a5fa" strokeWidth="2" fill="none" strokeDasharray="4 2" />
+      {/* AI sparkle */}
+      <path d="M50 12l2 3 3 1-3 1-2 3-2-3-3-1 3-1 2-3z" fill="#a78bfa" />
+    </svg>
+  );
+}
