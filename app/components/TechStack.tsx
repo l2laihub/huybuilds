@@ -8,7 +8,8 @@ const techCategories = [
     name: "AI / ML",
     techs: [
       { name: "GraphRAG", icon: "📊" },
-      { name: "GPT-4", icon: "🤖" },
+      { name: "OpenAI", icon: "🤖" },
+      { name: "GPT-4", icon: "💬" },
       { name: "Gemini 2.5", icon: "✨" },
       { name: "Claude", icon: "🧠" },
       { name: "LangChain", icon: "🔗" },
@@ -32,15 +33,14 @@ const techCategories = [
       { name: "FastAPI", icon: "⚡" },
       { name: "Node.js", icon: "🟢" },
       { name: "C# / .NET", icon: "🟣" },
-      { name: "GraphQL", icon: "◈" },
     ],
   },
   {
     name: "Cloud",
     techs: [
       { name: "Azure", icon: "☁️" },
-      { name: "AWS", icon: "🔶" },
       { name: "Vercel", icon: "▲" },
+      { name: "Netlify", icon: "🌐" },
       { name: "Docker", icon: "🐳" },
       { name: "K8s", icon: "☸️" },
     ],
