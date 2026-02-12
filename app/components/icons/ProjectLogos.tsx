@@ -150,6 +150,41 @@ export function ClockFlowLogo({ className = "" }: LogoProps) {
   );
 }
 
+// Love2Learn - Education/Tutoring themed
+export function Love2LearnLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Book */}
+      <path d="M12 14v36l20-6 20 6V14L32 20 12 14z" fill="#27272a" stroke="#3f3f46" strokeWidth="2" />
+      <line x1="32" y1="20" x2="32" y2="44" stroke="#3f3f46" strokeWidth="2" />
+      {/* Heart */}
+      <path d="M26 24c-3-4-8-3-8 1s8 10 14 14c6-4 14-10 14-14s-5-5-8-1l-6 5-6-5z" fill="#f59e0b" opacity="0.9" />
+      {/* Knowledge sparkles */}
+      <circle cx="22" cy="36" r="1.5" fill="#60a5fa" />
+      <circle cx="42" cy="36" r="1.5" fill="#60a5fa" />
+      <path d="M50 10l2 3 3 1-3 1-2 3-2-3-3-1 3-1 2-3z" fill="#4ade80" opacity="0.7" />
+    </svg>
+  );
+}
+
+// LobbyLoop - Check-in/Display system themed
+export function LobbyLoopLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Loop/infinity shape */}
+      <path d="M16 32c0-6 5-11 11-11s11 5 11 11-5 11-11 11" stroke="#f59e0b" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <path d="M48 32c0 6-5 11-11 11s-11-5-11-11 5-11 11-11" stroke="#60a5fa" strokeWidth="3" strokeLinecap="round" fill="none" />
+      {/* Screen/tablet icon */}
+      <rect x="26" y="26" width="12" height="12" rx="2" fill="#27272a" stroke="#fafafa" strokeWidth="1.5" />
+      {/* Check mark */}
+      <path d="M29 32l2 2 4-4" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Signal waves */}
+      <path d="M46 22c2 2 3 5 3 10s-1 8-3 10" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5" />
+      <path d="M50 18c3 4 5 8 5 14s-2 10-5 14" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.3" />
+    </svg>
+  );
+}
+
 // Figurify - Action Figure/Toy themed
 export function FigurifyLogo({ className = "" }: LogoProps) {
   return (

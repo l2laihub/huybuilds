@@ -10,5 +10,10 @@
       "Bash(npx next build)",
       "Bash(ls -la \"u:\\home\\l2laihub\\Projects\\huybuilds\\public\"\" 2>/dev/null || dir \"u:homel2laihubProjectshuybuildspublic \")"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "claude-flow",
+    "ruv-swarm"
+  ],
+  "enableAllProjectMcpServers": true
 }

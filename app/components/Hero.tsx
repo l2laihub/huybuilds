@@ -8,7 +8,7 @@ import { AnimatedText } from "./ui/AnimatedText";
 
 const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 7, suffix: "", label: "Apps in 2025" },
+  { value: 9, suffix: "", label: "Apps in 2025" },
   { value: 50, suffix: "%", label: "LLM Cost Reduced" },
 ];
 

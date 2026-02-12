@@ -12,6 +12,8 @@ import {
   PortraitsAILogo,
   ClockFlowLogo,
   FigurifyLogo,
+  Love2LearnLogo,
+  LobbyLoopLogo,
 } from "./icons/ProjectLogos";
 import { ComponentType } from "react";
 
@@ -102,6 +104,30 @@ const projects: Project[] = [
     metrics: [],
     url: "https://clockflow.app",
     Logo: ClockFlowLogo,
+  },
+  {
+    title: "Love2Learn",
+    description:
+      "Cross-platform tutoring management app for tutors and parents. Role-based access with session scheduling, progress tracking, and real-time communication.",
+    tags: ["React Native", "Expo", "Supabase", "TypeScript"],
+    metrics: [
+      { label: "iOS + Android + Web" },
+      { label: "Role-Based Access" },
+    ],
+    url: "https://app.lovetolearn.site",
+    Logo: Love2LearnLogo,
+  },
+  {
+    title: "LobbyLoop",
+    description:
+      "Two-screen check-in and promotional display system. Members check in on a tablet while a wall TV shows announcements and promotions.",
+    tags: ["React", "TypeScript", "Vite", "Netlify"],
+    metrics: [
+      { label: "Dual-Screen System" },
+      { label: "Waitlist Landing Page" },
+    ],
+    url: "https://lobbyloop.io",
+    Logo: LobbyLoopLogo,
   },
   {
     title: "Figurify",

@@ -8,7 +8,7 @@ const codeLines = [
   { number: 2, content: '  name: <span class="text-green-400">"Huy Duong"</span>,' },
   { number: 3, content: '  role: <span class="text-green-400">"Senior Engineer"</span>,' },
   { number: 4, content: '  focus: [<span class="text-green-400">"AI/ML"</span>, <span class="text-green-400">"Full-Stack"</span>],' },
-  { number: 5, content: '  shipped: <span class="text-green-400">"7 apps in 2025"</span>,' },
+  { number: 5, content: '  shipped: <span class="text-green-400">"9 apps in 2025"</span>,' },
   { number: 6, content: '};' },
   { number: 7, content: '' },
   { number: 8, content: '<span class="text-zinc-500">// Let\'s build something great</span>' },

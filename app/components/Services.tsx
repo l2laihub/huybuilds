@@ -33,7 +33,7 @@ const services = [
     icon: RocketIcon,
     title: "MVP Development",
     description:
-      "Rapid prototyping and product development. Shipped 7 production apps in 2025. Turn your idea into a working product fast.",
+      "Rapid prototyping and product development. Shipped 9 production apps in 2025. Turn your idea into a working product fast.",
   },
   {
     icon: ConsultIcon,

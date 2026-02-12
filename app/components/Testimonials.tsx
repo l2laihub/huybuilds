@@ -13,6 +13,13 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote:
+      "Huy built our tutoring management app from the ground up and delivered a polished cross-platform experience for both tutors and parents. The role-based system works seamlessly, and the real-time session tracking has saved us hours of manual coordination every week. He was responsive, detail-oriented, and truly understood what we needed.",
+    author: "Trang@Love2Learn",
+    context: "Love2Learn",
+    type: "client",
+  },
+  {
+    quote:
       "Huy's ability to take your vision of an app into reality means he is basically a magician. He is expedient and thoughtful in his process and exceeded some of my expectations. He built out an entire backend to make it autonomous for me to make my own updates which I appreciated very much. Highly recommended.",
     author: "Ben B.",
     context: "ABL Meditation",
