@@ -185,6 +185,93 @@ export function LobbyLoopLogo({ className = "" }: LogoProps) {
   );
 }
 
+// DaBraino - Math Bingo brain with grid
+export function DaBrainoLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Brain shape */}
+      <path
+        d="M32 10c-10 0-18 7-18 16 0 5 2.5 9 6 12l2 3c1 3 1 6 1 8h18c0-2 0-5 1-8l2-3c3.5-3 6-7 6-12 0-9-8-16-18-16z"
+        fill="url(#db-brain-gradient)"
+        opacity="0.9"
+      />
+      {/* Bingo grid overlay */}
+      <rect x="22" y="18" width="20" height="20" rx="2" fill="#27272a" opacity="0.7" />
+      <line x1="26" y1="18" x2="26" y2="38" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="30" y1="18" x2="30" y2="38" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="34" y1="18" x2="34" y2="38" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="38" y1="18" x2="38" y2="38" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="22" y1="22" x2="42" y2="22" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="22" y1="26" x2="42" y2="26" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="22" y1="30" x2="42" y2="30" stroke="#71717a" strokeWidth="0.5" />
+      <line x1="22" y1="34" x2="42" y2="34" stroke="#71717a" strokeWidth="0.5" />
+      {/* Marked cells */}
+      <circle cx="24" cy="20" r="1.5" fill="#4ade80" />
+      <circle cx="32" cy="28" r="1.5" fill="#f1c40f" />
+      <circle cx="36" cy="24" r="1.5" fill="#4ade80" />
+      <circle cx="28" cy="36" r="1.5" fill="#4ade80" />
+      <circle cx="40" cy="32" r="1.5" fill="#4ade80" />
+      {/* BINGO text */}
+      <text x="32" y="47" textAnchor="middle" fill="#fafafa" fontSize="6" fontFamily="monospace" fontWeight="bold" letterSpacing="1">BINGO</text>
+      <defs>
+        <linearGradient id="db-brain-gradient" x1="14" y1="10" x2="50" y2="49">
+          <stop offset="0%" stopColor="#9B59B6" />
+          <stop offset="40%" stopColor="#E91E8C" />
+          <stop offset="70%" stopColor="#F39C12" />
+          <stop offset="100%" stopColor="#F1C40F" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+// Dabingo - Multiplayer bingo game
+export function DabingoLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Bingo ball */}
+      <circle cx="32" cy="28" r="18" fill="url(#dabingo-gradient)" />
+      <ellipse cx="32" cy="22" rx="12" ry="6" fill="#fff" opacity="0.15" />
+      {/* Number on ball */}
+      <text x="32" y="33" textAnchor="middle" fill="#fafafa" fontSize="14" fontFamily="monospace" fontWeight="bold">75</text>
+      {/* Multiplayer dots */}
+      <circle cx="16" cy="50" r="4" fill="#60a5fa" />
+      <circle cx="28" cy="52" r="4" fill="#4ade80" />
+      <circle cx="40" cy="50" r="4" fill="#f59e0b" />
+      <circle cx="50" cy="48" r="3" fill="#a78bfa" />
+      {/* Connection lines */}
+      <line x1="20" y1="50" x2="24" y2="52" stroke="#3f3f46" strokeWidth="1" />
+      <line x1="32" y1="52" x2="36" y2="50" stroke="#3f3f46" strokeWidth="1" />
+      <line x1="43" y1="49" x2="47" y2="48" stroke="#3f3f46" strokeWidth="1" />
+      <defs>
+        <linearGradient id="dabingo-gradient" x1="14" y1="10" x2="50" y2="46">
+          <stop offset="0%" stopColor="#f59e0b" />
+          <stop offset="100%" stopColor="#dc2626" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+// EternalFrame - Memorial portrait themed
+export function EternalFrameLogo({ className = "" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      {/* Ornate frame */}
+      <rect x="10" y="8" width="44" height="48" rx="3" stroke="#f59e0b" strokeWidth="2.5" fill="none" />
+      <rect x="14" y="12" width="36" height="40" rx="1.5" stroke="#f59e0b" strokeWidth="1" fill="#27272a" opacity="0.8" />
+      {/* Portrait silhouette */}
+      <circle cx="32" cy="28" r="8" fill="#71717a" />
+      <ellipse cx="32" cy="44" rx="11" ry="6" fill="#71717a" />
+      {/* AI transformation sparkle */}
+      <path d="M48 10l2 3 3 1-3 1-2 3-2-3-3-1 3-1 2-3z" fill="#a78bfa" />
+      <path d="M14 46l1.5 2.5 2.5 1-2.5 1L14 53l-1.5-2.5L10 49.5l2.5-1L14 46z" fill="#a78bfa" opacity="0.6" />
+      {/* Warm glow */}
+      <circle cx="32" cy="32" r="16" stroke="#f59e0b" strokeWidth="0.5" fill="none" opacity="0.3" />
+    </svg>
+  );
+}
+
 // Figurify - Action Figure/Toy themed
 export function FigurifyLogo({ className = "" }: LogoProps) {
   return (

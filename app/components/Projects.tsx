@@ -14,6 +14,9 @@ import {
   FigurifyLogo,
   Love2LearnLogo,
   LobbyLoopLogo,
+  DaBrainoLogo,
+  DabingoLogo,
+  EternalFrameLogo,
 } from "./icons/ProjectLogos";
 import { ComponentType } from "react";
 
@@ -77,6 +80,42 @@ const projects: Project[] = [
     metrics: [{ label: "K-6 Grade Levels" }, { label: "50+ Standards" }],
     url: "https://sheetmagic.app",
     Logo: SheetMagicLogo,
+  },
+  {
+    title: "DaBraino",
+    description:
+      "Free math bingo game for kids (grades K-7). AI-powered clues, audio caller, 13 topics across math, fractions, decimals, and trivia. COPPA-compliant with zero data collection.",
+    tags: ["EdTech", "React Native", "AI", "Expo"],
+    metrics: [
+      { value: 13, suffix: " Topics", label: "Math & Trivia" },
+      { label: "COPPA-Compliant" },
+    ],
+    url: "/dabraino",
+    Logo: DaBrainoLogo,
+  },
+  {
+    title: "Dabingo",
+    description:
+      "Real-time multiplayer bingo for families. Play classic 75-ball Bingo or Vietnamese Lô Tô with 2-20 players. No accounts, no ads — just share a room code and play.",
+    tags: ["Multiplayer", "Real-Time", "Cross-Platform"],
+    metrics: [
+      { value: 20, suffix: " Players", label: "Per Room" },
+      { label: "2 Game Modes" },
+    ],
+    url: "https://dabingo.app",
+    Logo: DabingoLogo,
+  },
+  {
+    title: "EternalFrame",
+    description:
+      "AI-powered memorial portrait app. Transform old or faded photos into gallery-quality 4K portraits with culturally-aware style presets. Privacy-first with auto-deletion.",
+    tags: ["AI", "Image Gen", "Supabase"],
+    metrics: [
+      { label: "5 Style Presets" },
+      { label: "4K Print-Ready" },
+    ],
+    url: "https://eternalframe.app",
+    Logo: EternalFrameLogo,
   },
   {
     title: "ABL Meditation",

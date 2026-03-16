@@ -1,0 +1,13 @@
+.dabraino-theme {
+  --db-bg: #FFF8F0;
+  --db-text: #2D1B0E;
+  --db-text-muted: #6B5744;
+  --db-purple: #9B59B6;
+  --db-pink: #E91E8C;
+  --db-orange: #F39C12;
+  --db-yellow: #F1C40F;
+  --db-green: #51CF66;
+  --db-gradient: linear-gradient(135deg, #9B59B6, #E91E8C, #F39C12, #F1C40F);
+  --db-card-bg: #FFFFFF;
+  --db-border: #F0E6D8;
+}
