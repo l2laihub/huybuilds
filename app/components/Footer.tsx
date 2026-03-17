@@ -29,7 +29,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="font-mono text-sm text-zinc-500 text-center">
-            &copy; 2025 huybuilds — Crafted with precision in Seattle Area
+            &copy; 2025–2026 LTH Apps LLC — Crafted with precision in Seattle Area
           </p>
 
           {/* Back to top */}
