@@ -73,7 +73,7 @@ export function DaBrainoNav() {
 
             <div className="hidden md:block">
               <a
-                href="https://apps.apple.com/app/dabraino/id__________"
+                href="https://apps.apple.com/us/app/dabraino-educational-bingo/id6759766972"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg"
@@ -126,7 +126,7 @@ export function DaBrainoNav() {
                 </motion.div>
               ))}
               <motion.a
-                href="https://apps.apple.com/app/dabraino/id__________"
+                href="https://apps.apple.com/us/app/dabraino-educational-bingo/id6759766972"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
