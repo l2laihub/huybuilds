@@ -1,0 +1,80 @@
+.studio-theme {
+  --st-terracotta: #C2603A;
+  --st-terracotta-dark: #A44E2D;
+  --st-sage: #6E8C5A;
+  --st-amber: #CC9A46;
+  --st-ink: #2C2620;
+  --st-muted: #6E6358;
+  --st-sand: #F5EDE1;
+  --st-offwhite: #FAF5ED;
+  --st-surface: #FFFFFF;
+  --st-line: #E9DECF;
+
+  background: var(--st-offwhite);
+  color: var(--st-ink);
+  font-family: var(--font-studio), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Centered content column with mobile gutter. */
+.st-wrap {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Full-bleed Sand band with hairline borders. */
+.st-band {
+  background: var(--st-sand);
+  border-top: 1px solid var(--st-line);
+  border-bottom: 1px solid var(--st-line);
+}
+
+.st-card {
+  background: var(--st-surface);
+  border: 1px solid var(--st-line);
+  border-radius: 22px;
+}
+
+.st-shadow-card {
+  box-shadow: 0 4px 18px rgba(43, 36, 32, 0.05);
+}
+
+/* Buttons */
+.st-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.st-btn-primary {
+  background: var(--st-terracotta);
+  color: #fff;
+}
+.st-btn-primary:hover {
+  background: var(--st-terracotta-dark);
+}
+
+.st-btn-outline {
+  background: transparent;
+  color: var(--st-terracotta);
+  border: 1.5px solid var(--st-terracotta);
+}
+.st-btn-outline:hover {
+  background: var(--st-terracotta);
+  color: #fff;
+}
+
+.studio-theme :focus-visible {
+  outline: 2px solid var(--st-terracotta);
+  outline-offset: 2px;
+}
