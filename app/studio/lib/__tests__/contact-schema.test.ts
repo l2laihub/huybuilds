@@ -6,11 +6,11 @@ const base = { name: "An", phone: "206-555-0000", email: "", business: "Pho 88",
 describe("validateContactPayload", () => {
   it("accepts a valid payload with phone", () => {
     const r = validateContactPayload(base);
-    expect(r.ok).toBe(true);
+    expect(r).toEqual({ ok: true, data: { name: "An", phone: "206-555-0000", email: "", message: "Need a site", business: "Pho 88", businessType: "restaurant" } });
   });
   it("accepts a valid payload with email only", () => {
     const r = validateContactPayload({ ...base, phone: "", email: "a@b.com" });
-    expect(r.ok).toBe(true);
+    expect(r).toEqual({ ok: true, data: { name: "An", phone: "", email: "a@b.com", message: "Need a site", business: "Pho 88", businessType: "restaurant" } });
   });
   it("rejects when name missing", () => {
     const r = validateContactPayload({ ...base, name: "" });
