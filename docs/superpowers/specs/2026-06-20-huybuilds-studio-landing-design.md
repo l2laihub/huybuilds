@@ -31,8 +31,11 @@ Mirrors the existing self-contained sub-site convention (`app/dabraino/`).
   rewrite to `/studio` so the URL bar shows the clean subdomain. `huybuilds.app/studio`
   continues to work as a fallback. Middleware matcher excludes `/_next`, `/api`, and
   static assets.
-- **Deploy step (manual, owner):** add `studio.huybuilds.app` as a domain on the existing
-  Vercel project. Documented in the implementation notes; no code dependency.
+- **Deploy step (manual, owner):** add `studio.huybuilds.app` as a domain alias in Netlify
+  (Domain management) and point a DNS `CNAME studio` → the Netlify site. Netlify's Next.js
+  runtime (`@netlify/plugin-nextjs`, auto-installed at build) runs the middleware as a
+  Netlify Edge Function, so the host→path rewrite works with no extra config. Documented in
+  the implementation notes; no code dependency.
 
 ### Theme & tokens
 - `app/studio/studio.css` defines the Terracotta + Sage token set as CSS custom properties,
@@ -105,4 +108,4 @@ gutter. Section bands full-bleed Sand with 1px top/bottom borders.
 ## Open items
 - Real contact handles (owner to provide; placeholders ship until then).
 - Real photos (owner to provide; placeholder slots ship until then).
-- Vercel domain attachment for `studio.huybuilds.app` (owner, post-merge).
+- Netlify domain alias + DNS `CNAME studio` for `studio.huybuilds.app` (owner, post-merge).
