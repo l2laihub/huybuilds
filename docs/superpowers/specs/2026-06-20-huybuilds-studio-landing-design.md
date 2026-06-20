@@ -15,7 +15,9 @@ Tone: warm, trustworthy, calm, professional — **NOT a flashy tech startup**. N
 
 ## Non-Goals
 
-- No contact form, backend, or DB — contact is via text/Zalo/FB/email links only.
+- No DB or auth — the contact form emails the submission and stores nothing.
+- The form **complements** the text/Zalo/FB/email rows; those stay the primary, lowest-
+  friction path (the audience prefers messaging). The form never replaces them.
 - No reuse of the portfolio's animated/techy UI (framer-motion, magnetic buttons, orbs).
 - No CMS — copy lives in `strings.json`; prices/handles in plain constants.
 - The portfolio site (`huybuilds.app`) and DaBraino sub-site are untouched.
@@ -76,7 +78,10 @@ Mirrors the existing self-contained sub-site convention (`app/dabraino/`).
 - `Sample` (`#proof`) — Sand band, browser mockup frame + phone mockup, image slots.
 - `WhyMe` — portrait slot + five terracotta-check trust bullets (2-col desktop).
 - `Pricing` (`#pricing`) — Sand band, three cards, middle "Most popular" elevated/bordered.
-- `Contact` (`#contact`) — four large tappable rows (sms/Zalo/FB/mailto), capped 640px.
+- `Contact` (`#contact`) — four large tappable rows (sms/Zalo/FB/mailto), capped 640px,
+  **plus a `ContactForm`** below them (see Contact form section).
+- `ContactForm` — client component, 6 fields, posts to `/api/studio-contact`, bilingual
+  labels + validation + loading/success/error states (see below).
 - `StudioFooter` — ink bg, light text, wordmark + tagline + location.
 - `LangToggle` — EN/VI pill.
 - `icons.tsx` — inline SVG marks (browser window, calendar grid, phone) in tinted badges.
@@ -87,6 +92,32 @@ Mirrors the existing self-contained sub-site convention (`app/dabraino/`).
   (`sms:`, `mailto:`, Zalo, Facebook). **Currently the handoff placeholders**
   (`(206) 555-0123`, `zalo.me/huybuilds`, `fb.com/huybuilds`, `huy@huybuilds.studio`) —
   owner swaps real values here. Prices come from `strings.json`.
+
+### Contact form
+A real, working form that emails Huy each submission. Complements the contact rows.
+
+- **Fields (6):** Name, Phone, Email, Business name, Business type, Message. Plus a hidden
+  honeypot field for spam. Required: Name + at least one of Phone/Email + Message; others
+  optional. Client-side validation with bilingual inline errors; server re-validates.
+- **Component:** `app/studio/components/ContactForm.tsx` (client). Controlled inputs, large
+  tap targets (≥48px) and 16px+ font for the older audience. Submits via `fetch` POST to
+  `/api/studio-contact`. States: idle → submitting (disabled + spinner) → success (replaces
+  form with a warm thank-you, bilingual) or error (inline message, form preserved).
+  Business-type is a `<select>` (Restaurant / Café / Market / Salon / Other), bilingual.
+- **API route:** `app/api/studio-contact/route.ts` (Node route handler; runs as a Netlify
+  Function). Validates payload, rejects if honeypot filled, sends email via **Resend**
+  (`resend` npm dependency) to the owner. Returns `{ ok: true }` or a `4xx/5xx` with a
+  bilingual-safe error code (client maps code → localized message). No persistence.
+- **Env vars** (Netlify site settings, not committed):
+  - `RESEND_API_KEY` — Resend API key.
+  - `STUDIO_CONTACT_TO` — destination email (defaults to the `huy@huybuilds.studio`
+    placeholder if unset; owner sets real value).
+  - `STUDIO_CONTACT_FROM` — verified Resend sender (e.g. `studio@huybuilds.app`).
+  - Missing `RESEND_API_KEY` → route returns a graceful 503 and the form shows "please text
+    me instead" pointing at the sms link, so the page never hard-fails.
+- **Strings:** new bilingual keys added to `strings.json` (form heading, the 6 labels +
+  placeholders, business-type options, submit button, submitting/success/error messages,
+  validation messages). VI translations authored to match the existing copy's warm register.
 
 ### Photos (placeholders)
 Drop-in `<img>` slots with neutral placeholder backgrounds + `TODO` comments:
@@ -104,8 +135,13 @@ gutter. Section bands full-bleed Sand with 1px top/bottom borders.
   persists across reload, anchor nav scrolls, layout switches at 920px, contact links use
   correct schemes. Verify middleware rewrite locally via a `Host: studio.huybuilds.app`
   header (or `/etc/hosts` + `next dev`).
+- Contact form: validates required fields in both languages, honeypot blocks bots, success
+  state shows after a real submit, and the API route emails the destination. With
+  `RESEND_API_KEY` unset, the form degrades gracefully to the "text me" fallback (no crash).
 
 ## Open items
 - Real contact handles (owner to provide; placeholders ship until then).
 - Real photos (owner to provide; placeholder slots ship until then).
 - Netlify domain alias + DNS `CNAME studio` for `studio.huybuilds.app` (owner, post-merge).
+- Resend account, verified sender domain, and the three `STUDIO_CONTACT_*` / `RESEND_API_KEY`
+  env vars set in Netlify (owner). Until then the form runs in graceful-fallback mode.
