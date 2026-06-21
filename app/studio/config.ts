@@ -5,8 +5,8 @@
 export const CONTACT = {
   phoneDisplay: "(425) 998-7191",
   facebookUrl: "https://www.facebook.com/profile.php?id=61591364631052",
-  facebookDisplay: "fb.com/huybuilds",
-  email: "huybuilds@gmail.com",
+  facebookDisplay: "fb.com/huybuilds-studio",
+  email: "studio@huybuilds.app",
 } as const;
 
 /** Normalize a display phone to E.164-ish digits, assuming +1 for 10-digit US numbers. */
