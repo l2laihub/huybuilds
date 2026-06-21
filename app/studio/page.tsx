@@ -1,5 +1,6 @@
 import { Hero } from "./components/Hero";
 import { Problem } from "./components/Problem";
+import { WhyOnline } from "./components/WhyOnline";
 import { WhatIDo } from "./components/WhatIDo";
 import { Sample } from "./components/Sample";
 import { WhyMe } from "./components/WhyMe";
@@ -11,6 +12,7 @@ export default function StudioPage() {
     <>
       <Hero />
       <Problem />
+      <WhyOnline />
       <WhatIDo />
       <Sample />
       <WhyMe />

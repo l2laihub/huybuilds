@@ -41,6 +41,35 @@ export function IconCheck({ className, style }: IconProps) {
   );
 }
 
+export function IconSearch({ className, style }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} style={style} aria-hidden>
+      <circle cx="11" cy="11" r="7" />
+      <path d="M21 21l-4.3-4.3" />
+    </svg>
+  );
+}
+
+export function IconPin({ className, style }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} style={style} aria-hidden>
+      <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
+export function IconStar({ className, style }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} style={style} aria-hidden>
+      <polygon points="12 2.5 14.85 8.3 21.25 9.25 16.6 13.75 17.7 20.1 12 17.1 6.3 20.1 7.4 13.75 2.75 9.25 9.15 8.3" />
+    </svg>
+  );
+}
+
 /** Large decorative opening curly quote. */
 export function Quote({ className, style }: IconProps) {
   return (

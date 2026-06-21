@@ -3,10 +3,8 @@
  * Phone is US; smsHref/telDigits assume +1 when no country code is present.
  */
 export const CONTACT = {
-  phoneDisplay: "(206) 816-4212",
-  zaloUrl: "https://zalo.me/huybuilds",
-  zaloDisplay: "zalo.me/huybuilds",
-  facebookUrl: "https://fb.com/huybuilds",
+  phoneDisplay: "(425) 998-7191",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61591364631052",
   facebookDisplay: "fb.com/huybuilds",
   email: "huybuilds@gmail.com",
 } as const;
