@@ -8,7 +8,6 @@ export function Contact() {
   const t = useT();
   const rows = [
     { href: smsHref(CONTACT.phoneDisplay), label: t("cCall"), value: CONTACT.phoneDisplay, primary: true },
-    { href: CONTACT.zaloUrl, label: t("cZalo"), value: CONTACT.zaloDisplay, primary: false },
     { href: CONTACT.facebookUrl, label: t("cFb"), value: CONTACT.facebookDisplay, primary: false },
     { href: mailtoHref(CONTACT.email), label: t("cEmail"), value: CONTACT.email, primary: false },
   ];

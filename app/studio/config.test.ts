@@ -2,9 +2,8 @@ import { describe, it, expect } from "vitest";
 import { CONTACT, smsHref, telDigits, mailtoHref } from "./config";
 
 describe("contact config", () => {
-  it("exposes the four handles", () => {
+  it("exposes the contact handles", () => {
     expect(CONTACT.phoneDisplay).toBeTruthy();
-    expect(CONTACT.zaloUrl).toMatch(/^https?:\/\//);
     expect(CONTACT.facebookUrl).toMatch(/^https?:\/\//);
     expect(CONTACT.email).toContain("@");
   });

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "../i18n";
 
 export function Hero() {
@@ -9,15 +10,22 @@ export function Hero() {
       <div className="flex flex-col gap-8 min-[920px]:flex-row-reverse min-[920px]:items-center">
         {/* Intro card / photo */}
         <div className="st-card st-shadow-card" style={{ padding: 24, flex: "1 1 0", textAlign: "center" }}>
-          {/* TODO: replace with Huy's circular headshot */}
           <div
-            aria-label="Photo of Huy"
             style={{
               width: 64, height: 64, borderRadius: 999, margin: "0 auto 12px",
-              background: "var(--st-sand)", border: "1px solid var(--st-line)",
+              border: "1px solid var(--st-line)", position: "relative", overflow: "hidden",
             }}
             className="min-[920px]:!w-[210px] min-[920px]:!h-[210px]"
-          />
+          >
+            <Image
+              src="/studio/huy-profile.png"
+              alt="Huy, founder of HuyBuilds Studio"
+              fill
+              sizes="(min-width: 920px) 210px, 64px"
+              style={{ objectFit: "cover", objectPosition: "center 18%" }}
+              priority
+            />
+          </div>
           <div style={{ fontSize: 16, fontWeight: 800 }}>{t("introName")}</div>
           <div style={{ fontSize: 14, color: "var(--st-muted)", marginTop: 4 }}>{t("introRole")}</div>
         </div>
