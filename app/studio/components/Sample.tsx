@@ -33,7 +33,7 @@ export function Sample() {
             <div style={{ position: "relative", background: "var(--st-sand)" }} className="h-[220px] min-[920px]:h-[400px]">
               <Image
                 src="/studio/sample-desktop.png"
-                alt="A sample website built by HuyBuilds Studio — Biển Xanh Seafood Market"
+                alt="A sample mockup website designed by HuyBuilds Studio — a seafood market demo"
                 fill
                 sizes="(min-width: 920px) 700px, 100vw"
                 style={{ objectFit: "cover", objectPosition: "top center" }}
@@ -56,7 +56,7 @@ export function Sample() {
               <div style={{ position: "relative", background: "var(--st-sand)", height: 360, marginTop: 8 }}>
                 <Image
                   src="/studio/sample-mobile.png"
-                  alt="A sample website on mobile built by HuyBuilds Studio — Biển Xanh Seafood Market"
+                  alt="A sample mockup website on mobile, designed by HuyBuilds Studio — a seafood market demo"
                   fill
                   sizes="180px"
                   style={{ objectFit: "cover", objectPosition: "top center" }}
