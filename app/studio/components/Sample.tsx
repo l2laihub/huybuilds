@@ -46,19 +46,21 @@ export function Sample() {
             href={DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ flex: "none", background: "var(--st-ink)", borderRadius: 30, padding: 10, width: 200, display: "block" }}
+            style={{ flex: "none", background: "var(--st-ink)", borderRadius: 30, padding: 10, width: 230, display: "block" }}
             className="self-center min-[920px]:self-end"
           >
             <div style={{ background: "var(--st-surface)", borderRadius: 24, overflow: "hidden" }}>
               <div style={{ display: "flex", justifyContent: "center", paddingTop: 8 }}>
                 <span style={{ width: 60, height: 5, borderRadius: 999, background: "var(--st-line)" }} />
               </div>
-              <div style={{ position: "relative", background: "var(--st-sand)", height: 360, marginTop: 8 }}>
+              {/* Screen matches the screenshot's 1000:1560 ratio so the full
+                  mobile page shows with no horizontal cropping. */}
+              <div style={{ position: "relative", background: "var(--st-sand)", aspectRatio: "1000 / 1560", marginTop: 8 }}>
                 <Image
                   src="/studio/sample-mobile.png"
                   alt="A sample mockup website on mobile, designed by HuyBuilds Studio — a seafood market demo"
                   fill
-                  sizes="180px"
+                  sizes="210px"
                   style={{ objectFit: "cover", objectPosition: "top center" }}
                 />
               </div>

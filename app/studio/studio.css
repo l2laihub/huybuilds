@@ -74,6 +74,21 @@
   color: #fff;
 }
 
+/*
+ * Nav CTA: hidden on mobile, shown from 920px up.
+ * Defined here (not via Tailwind's `hidden`) because `.st-btn` sets an
+ * unlayered `display: inline-flex` that would override the utility's
+ * `display: none`. Source order after `.st-btn` lets this win.
+ */
+.st-nav-cta {
+  display: none;
+}
+@media (min-width: 920px) {
+  .st-nav-cta {
+    display: inline-flex;
+  }
+}
+
 .studio-theme :focus-visible {
   outline: 2px solid var(--st-terracotta);
   outline-offset: 2px;

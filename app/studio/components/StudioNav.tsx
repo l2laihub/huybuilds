@@ -48,8 +48,8 @@ export function StudioNav() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <LangToggle />
-          <a href="#contact" className="st-btn st-btn-primary hidden min-[920px]:inline-flex"
-            style={{ height: 42, padding: "0 18px", fontSize: 15 }}>
+          <a href="#contact" className="st-btn st-btn-primary st-nav-cta"
+            style={{ height: 42, padding: "0 18px", fontSize: 15, whiteSpace: "nowrap" }}>
             {t("navMsg")}
           </a>
         </div>
