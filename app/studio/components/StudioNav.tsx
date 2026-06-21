@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "../i18n";
 import { Wordmark } from "./Wordmark";
 import { LangToggle } from "./LangToggle";
@@ -25,7 +26,14 @@ export function StudioNav() {
       }}
     >
       <div className="st-wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64, gap: 16 }}>
-        <a href="#top" aria-label="HuyBuilds Studio">
+        <a href="#top" aria-label="HuyBuilds Studio" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Image
+            src="/studio/brand/logo-app-icon-256.png"
+            alt=""
+            width={32}
+            height={32}
+            style={{ borderRadius: 8, display: "block" }}
+          />
           <Wordmark />
         </a>
 

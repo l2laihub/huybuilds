@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#C2603A"></rect>
+  <text x="30" y="46" text-anchor="middle" class="mono" font-size="40" letter-spacing="-1" fill="#FAF5ED">h</text>
+  <circle cx="46" cy="43" r="4.5" fill="#CC9A46"></circle>
+</svg>

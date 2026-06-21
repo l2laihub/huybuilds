@@ -3,12 +3,12 @@
  * Phone is US; smsHref/telDigits assume +1 when no country code is present.
  */
 export const CONTACT = {
-  phoneDisplay: "(206) 555-0123",
+  phoneDisplay: "(206) 816-4212",
   zaloUrl: "https://zalo.me/huybuilds",
   zaloDisplay: "zalo.me/huybuilds",
   facebookUrl: "https://fb.com/huybuilds",
   facebookDisplay: "fb.com/huybuilds",
-  email: "huy@huybuilds.studio",
+  email: "huybuilds@gmail.com",
 } as const;
 
 /** Normalize a display phone to E.164-ish digits, assuming +1 for 10-digit US numbers. */

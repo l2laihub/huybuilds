@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "../i18n";
 import { IconCheck } from "./icons";
 
@@ -10,11 +11,18 @@ export function WhyMe() {
   return (
     <section className="st-wrap" style={{ paddingTop: 48, paddingBottom: 48 }}>
       <div className="flex flex-col gap-6 min-[920px]:flex-row">
-        {/* TODO: replace with Huy's portrait */}
         <div
-          style={{ flex: "none", background: "var(--st-sand)", border: "1px solid var(--st-line)", borderRadius: 18 }}
+          style={{ flex: "none", border: "1px solid var(--st-line)", borderRadius: 18, position: "relative", overflow: "hidden" }}
           className="w-[104px] h-[120px] min-[920px]:w-[140px] min-[920px]:h-[160px]"
-        />
+        >
+          <Image
+            src="/studio/huy-profile.png"
+            alt="Huy, founder of HuyBuilds Studio"
+            fill
+            sizes="(min-width: 920px) 140px, 104px"
+            style={{ objectFit: "cover", objectPosition: "center 12%" }}
+          />
+        </div>
         <div style={{ flex: "1 1 0" }}>
           <h2 style={{ fontSize: 26, fontWeight: 800 }}>{t("whyTitle")}</h2>
           <p style={{ fontSize: 18, color: "var(--st-muted)", marginTop: 8 }}>{t("whyLede")}</p>

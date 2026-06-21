@@ -13,9 +13,17 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://studio.huybuilds.app"),
   title: "HuyBuilds Studio — Websites for local businesses",
   description:
     "I build your website, run your social media automatically, and handle it all — in English or Vietnamese. Serving Vietnamese-American businesses in Seattle.",
+  icons: {
+    icon: [
+      { url: "/studio/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/studio/brand/favicon-64.png", sizes: "64x64", type: "image/png" },
+    ],
+    apple: [{ url: "/studio/brand/logo-app-icon-180.png", sizes: "180x180" }],
+  },
   openGraph: {
     title: "HuyBuilds Studio — Websites for local businesses",
     description:
@@ -23,6 +31,14 @@ export const metadata: Metadata = {
     url: "https://studio.huybuilds.app",
     siteName: "HuyBuilds Studio",
     type: "website",
+    images: [
+      {
+        url: "/studio/brand/logo-app-icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "HuyBuilds Studio",
+      },
+    ],
   },
 };
 
