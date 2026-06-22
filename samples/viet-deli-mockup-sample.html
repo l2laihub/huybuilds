@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<!--
+  ============================================================================
+  HUYBUILDS STUDIO — VIETNAMESE DELI "AFTER" MOCKUP  (SAMPLE / CONCEPT)
+  ============================================================================
+  Fictional business ("Bến Thành Deli") — safe to show publicly as a sample.
+  To reuse for a REAL deli prospect: find/replace the name, swap menu items +
+  prices, drop in their real photos (the .ph blocks), set the Order + phone
+  links, and you've got a personalized free preview to show the owner.
+  Tap the EN / VI toggle (top-right) to switch language.
+  ============================================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bến Thành Deli — Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf3e6;          /* warm rice paper */
+    --bg2:#f6e6cf;         /* toasted cream */
+    --ink:#231811;         /* dark roast */
+    --muted:#7c6552;
+    --red:#c5362b;         /* lacquer red */
+    --red-deep:#9c271f;
+    --gold:#e0a43b;        /* turmeric gold */
+    --green:#3f7a4e;       /* herb green */
+    --card:#fffcf6;
+    --line:rgba(35,24,17,0.13);
+    --shadow:0 22px 60px -28px rgba(70,38,22,.55);
+    --disp:'Familjen Grotesk',system-ui,sans-serif;
+    --sans:'Be Vietnam Pro',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.04;letter-spacing:-.015em}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:15px;padding:13px 24px;border-radius:12px;cursor:pointer;border:1.5px solid transparent;transition:transform .15s ease, box-shadow .2s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 26px -10px rgba(197,54,43,.8)}
+  .btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+  .sample-badge{position:fixed;bottom:14px;right:14px;z-index:80;background:var(--ink);color:#fff;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:7px 13px;border-radius:999px;opacity:.92}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,243,230,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand .mark{width:34px;height:34px;border-radius:10px;background:var(--red);flex:none;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--disp);font-weight:700;font-size:19px;box-shadow:0 6px 14px -6px rgba(197,54,43,.8)}
+  .brand .nm{font-family:var(--disp);font-size:22px;font-weight:700;letter-spacing:-.01em}
+  .brand .nm b{color:var(--red);font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:12px;font-weight:600}
+  .lang button{background:none;border:none;padding:7px 12px;cursor:pointer;color:var(--muted)}
+  .lang button.on{background:var(--ink);color:var(--bg)}
+  .nav .btn{padding:9px 18px;font-size:14px}
+  @media(max-width:640px){.nav .order-cta{display:none}}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:58px 0 64px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--gold)}
+  .hero h1{font-size:clamp(46px,7.2vw,82px)}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .hero p.tag{font-size:19px;color:var(--muted);margin:20px 0 30px;max-width:42ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .hero-photo{position:relative;aspect-ratio:4/5;border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+  .ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px}
+  .ph .ph-note{font-family:var(--sans);font-size:11px;color:rgba(255,255,255,.92);background:rgba(35,24,17,.42);padding:6px 10px;border-radius:8px;letter-spacing:.04em}
+  .hero-photo .ph{background:
+      radial-gradient(120% 90% at 78% 12%, rgba(224,164,59,.6), transparent 55%),
+      radial-gradient(120% 90% at 12% 96%, rgba(63,122,78,.5), transparent 55%),
+      linear-gradient(150deg,#e8703f,#c5362b)}
+  .badge{position:absolute;top:18px;left:18px;z-index:3;background:var(--card);border-radius:12px;padding:9px 14px;box-shadow:var(--shadow);font-family:var(--sans);font-size:13px;font-weight:600;display:flex;align-items:center;gap:7px}
+  .badge .star{color:var(--gold)}
+
+  /* TRUST STRIP */
+  .strip{background:var(--ink);color:var(--bg)}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-around;padding:20px 24px;font-family:var(--sans);font-size:14px;font-weight:300}
+  .strip b{font-family:var(--disp);font-weight:600;color:var(--gold);font-size:15px}
+
+  section.block{padding:80px 0}
+  .lead{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
+  .lead h2{font-size:clamp(30px,4.6vw,48px)}
+  .lead p{color:var(--muted);max-width:40ch}
+
+  /* MENU */
+  .menu-cat{margin-bottom:40px}
+  .menu-cat:last-child{margin-bottom:0}
+  .cat-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .cat-head .c-tt{font-family:var(--disp);font-size:24px;font-weight:700}
+  .cat-head .c-line{flex:1;height:1px;background:var(--line)}
+  .cat-head .c-tag{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,#fff);padding:4px 10px;border-radius:999px}
+  .items{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 40px}
+  .item{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+  .item .i-name{font-family:var(--sans);font-size:17px;font-weight:600}
+  .item .i-name .vibe{font-size:11px;color:var(--green);font-weight:700;border:1px solid color-mix(in srgb,var(--green) 40%,#fff);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+  .item .i-desc{font-family:var(--sans);font-size:13.5px;color:var(--muted);font-weight:300;margin-top:2px}
+  .item .i-price{font-family:var(--disp);font-size:18px;font-weight:700;color:var(--red-deep);white-space:nowrap}
+  .menu-foot{margin-top:38px;text-align:center}
+
+  /* GALLERY */
+  .fresh-section{background:var(--bg2)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+  .gallery .sq{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(70,38,22,.6)}
+  .gallery .sq .ph{position:static;height:100%;padding:0}
+  .gallery .cap{position:absolute;left:12px;bottom:12px;z-index:2;font-family:var(--sans);font-size:12px;font-weight:600;color:#fff;background:rgba(35,24,17,.42);padding:5px 10px;border-radius:8px}
+  .g1 .ph{background:linear-gradient(135deg,#f0a85a,#c5362b)}
+  .g2 .ph{background:linear-gradient(135deg,#cfe0c2,#3f7a4e)}
+  .g3 .ph{background:linear-gradient(135deg,#f6d79a,#e0a43b)}
+  .g4 .ph{background:linear-gradient(135deg,#e8b3a0,#b24a36)}
+
+  /* STORY */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .why .photo-sq{aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+  .why .photo-sq .ph{position:relative;height:100%;background:
+      radial-gradient(120% 90% at 20% 15%, rgba(224,164,59,.5), transparent 55%),
+      linear-gradient(150deg,#3f7a4e,#234a30)}
+  .why h2{font-size:clamp(30px,4.6vw,46px);margin-bottom:18px}
+  .why ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:8px}
+  .why li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+  .why li .dot{width:22px;height:22px;border-radius:50%;background:color-mix(in srgb,var(--green) 20%,#fff);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;flex:none;margin-top:2px;font-weight:700}
+
+  /* CATERING BANNER */
+  .cater{background:var(--red);color:#fff;border-radius:24px;padding:46px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .cater::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(224,164,59,.55),transparent 70%)}
+  .cater h2{color:#fff;font-size:clamp(28px,4vw,40px);position:relative}
+  .cater p{font-size:16px;opacity:.92;margin-top:12px;max-width:42ch;position:relative}
+  .cater .btn{background:var(--gold);color:var(--ink);align-self:center;justify-self:end;position:relative}
+
+  /* VISIT + ORDER */
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .visit-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:var(--shadow)}
+  .visit-card h3{font-size:24px;margin-bottom:18px}
+  .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-family:var(--sans);font-size:14.5px}
+  .row:last-child{border-bottom:none}
+  .row span:first-child{color:var(--muted)}
+  .order-card{background:linear-gradient(150deg,var(--green),#234a30);color:#fff;border-radius:22px;padding:34px;display:flex;flex-direction:column;justify-content:center;gap:14px;box-shadow:var(--shadow)}
+  .order-card h3{color:#fff;font-size:27px}
+  .order-card p{font-size:15px;opacity:.92}
+  .order-card .btn{background:var(--gold);color:var(--ink);align-self:flex-start}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--bg);padding:56px 0 28px;margin-top:14px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:38px}
+  .foot-brand{font-family:var(--disp);font-size:26px;font-weight:700}
+  .foot-brand b{color:var(--gold)}
+  .socials{display:flex;gap:12px;margin-top:16px}
+  .socials a{width:40px;height:40px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:12px;font-weight:500;transition:background .2s}
+  .socials a:hover{background:var(--red);border-color:var(--red)}
+  .foot-col h4{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
+  .foot-col p{font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(251,243,230,.78);margin-bottom:6px}
+  .credit{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--sans);font-size:12.5px;color:rgba(251,243,230,.6)}
+  .credit a{color:var(--gold);font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;gap:28px;padding:40px 0 50px}
+    .hero-photo{aspect-ratio:5/4;max-height:380px}
+    .why,.visit{grid-template-columns:1fr;gap:28px}
+    .cater{grid-template-columns:1fr;padding:34px;text-align:center}
+    .cater .btn{justify-self:center}
+    .items{grid-template-columns:1fr;gap:0}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    section.block{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+<div class="sample-badge">Mẫu · Sample — HuyBuilds Studio</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="mark">BT</span>
+      <span class="nm">Bến Thành <b>Deli</b></span>
+    </div>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="vi">VI</button>
+      </div>
+      <a class="btn btn-primary order-cta" href="#order" data-en="Order Online" data-vi="Đặt Món">Order Online</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="reveal">
+      <div class="kicker" data-en="Bánh Mì · Phở · Rice Plates · Seattle" data-vi="Bánh Mì · Phở · Cơm · Seattle">Bánh Mì · Phở · Rice Plates · Seattle</div>
+      <h1><span data-en="Saigon flavors," data-vi="Hương vị Sài Gòn,">Saigon flavors,</span> <em data-en="made fresh daily." data-vi="làm mới mỗi ngày.">made fresh daily.</em></h1>
+      <p class="tag" data-en="Crackly bánh mì, steaming phở, and rice plates built on family recipes — grab-and-go, dine-in, or catered for a crowd." data-vi="Bánh mì giòn rụm, phở nóng hổi, và cơm dĩa từ công thức gia đình — mua mang đi, ăn tại chỗ, hay đặt tiệc.">Crackly bánh mì, steaming phở, and rice plates built on family recipes — grab-and-go, dine-in, or catered for a crowd.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order" data-en="Order online" data-vi="Đặt món online">Order online</a>
+        <a class="btn btn-ghost" href="#menu" data-en="See the menu" data-vi="Xem thực đơn">See the menu</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal" style="animation-delay:.12s">
+      <div class="badge"><span class="star">★</span> 4.8 · 950+ <span data-en="reviews" data-vi="đánh giá">reviews</span></div>
+      <img src="uploads/deli-hero.jpg" alt="Vietnamese bánh mì sandwich" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div><b data-en="Made fresh daily" data-vi="Làm mới mỗi ngày">Made fresh daily</b></div>
+    <div><b data-en="Order online" data-vi="Đặt món online">Order online</b> · <span data-en="ready in 15 min" data-vi="có sau 15 phút">ready in 15 min</span></div>
+    <div><b data-en="Catering & trays" data-vi="Đặt tiệc & khay lớn">Catering &amp; trays</b></div>
+    <div><b data-en="Family recipes" data-vi="Công thức gia đình">Family recipes</b></div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="block" id="menu">
+  <div class="wrap">
+    <div class="lead">
+      <h2 data-en="The menu" data-vi="Thực đơn">The menu</h2>
+      <p data-en="A few favorites. Full menu in store and when you order online." data-vi="Một vài món được yêu thích. Thực đơn đầy đủ tại tiệm và khi đặt online.">A few favorites. Full menu in store and when you order online.</p>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-head"><span class="c-tt">Bánh Mì</span><span class="c-line"></span><span class="c-tag" data-en="Toasted to order" data-vi="Nướng nóng">Toasted to order</span></div>
+      <div class="items">
+        <div class="item"><div><div class="i-name" data-en="Grilled Pork Bánh Mì" data-vi="Bánh Mì Thịt Nướng">Grilled Pork Bánh Mì<span class="vibe" data-en="Top seller" data-vi="Bán chạy">Top seller</span></div><div class="i-desc" data-en="Lemongrass pork, pâté, pickles, cilantro" data-vi="Heo sả, pa-tê, đồ chua, ngò">Lemongrass pork, pâté, pickles, cilantro</div></div><div class="i-price">$8</div></div>
+        <div class="item"><div><div class="i-name" data-en="Cold Cut Bánh Mì" data-vi="Bánh Mì Thập Cẩm">Cold Cut Bánh Mì</div><div class="i-desc" data-en="House chả lụa, ham, pâté" data-vi="Chả lụa nhà, giăm bông, pa-tê">House chả lụa, ham, pâté</div></div><div class="i-price">$8</div></div>
+        <div class="item"><div><div class="i-name" data-en="Lemongrass Tofu Bánh Mì" data-vi="Bánh Mì Đậu Hũ Sả">Lemongrass Tofu Bánh Mì<span class="vibe" data-en="Veg" data-vi="Chay">Veg</span></div><div class="i-desc" data-en="Crispy tofu, herbs, chili mayo" data-vi="Đậu hũ giòn, rau thơm, sốt ớt">Crispy tofu, herbs, chili mayo</div></div><div class="i-price">$8</div></div>
+        <div class="item"><div><div class="i-name" data-en="Grilled Chicken Bánh Mì" data-vi="Bánh Mì Gà Nướng">Grilled Chicken Bánh Mì</div><div class="i-desc" data-en="Honey-glazed chicken, slaw" data-vi="Gà nướng mật ong, đồ chua">Honey-glazed chicken, slaw</div></div><div class="i-price">$8</div></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-head"><span class="c-tt">Phở &amp; Noodles</span><span class="c-line"></span><span class="c-tag" data-en="Simmered 12 hrs" data-vi="Hầm 12 tiếng">Simmered 12 hrs</span></div>
+      <div class="items">
+        <div class="item"><div><div class="i-name" data-en="Phở Bò (Beef)" data-vi="Phở Bò">Phở Bò (Beef)<span class="vibe" data-en="Signature" data-vi="Đặc trưng">Signature</span></div><div class="i-desc" data-en="Rare steak, brisket, scratch broth" data-vi="Tái, gầu, nước lèo nấu nhà">Rare steak, brisket, scratch broth</div></div><div class="i-price">$15</div></div>
+        <div class="item"><div><div class="i-name" data-en="Phở Gà (Chicken)" data-vi="Phở Gà">Phở Gà (Chicken)</div><div class="i-desc" data-en="Free-range chicken, ginger broth" data-vi="Gà ta, nước lèo gừng">Free-range chicken, ginger broth</div></div><div class="i-price">$14</div></div>
+        <div class="item"><div><div class="i-name" data-en="Bún Bò Huế" data-vi="Bún Bò Huế">Bún Bò Huế<span class="vibe" data-en="Spicy" data-vi="Cay">Spicy</span></div><div class="i-desc" data-en="Lemongrass-chili beef noodle" data-vi="Bún bò sả ớt">Lemongrass-chili beef noodle</div></div><div class="i-price">$15</div></div>
+        <div class="item"><div><div class="i-name" data-en="Bún Thịt Nướng" data-vi="Bún Thịt Nướng">Bún Thịt Nướng</div><div class="i-desc" data-en="Grilled pork over vermicelli" data-vi="Bún thịt heo nướng">Grilled pork over vermicelli</div></div><div class="i-price">$13</div></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <div class="cat-head"><span class="c-tt">Rice, Sides &amp; Drinks</span><span class="c-line"></span><span class="c-tag" data-en="Grab & go" data-vi="Mua mang đi">Grab &amp; go</span></div>
+      <div class="items">
+        <div class="item"><div><div class="i-name" data-en="Cơm Tấm (Broken Rice)" data-vi="Cơm Tấm">Cơm Tấm (Broken Rice)</div><div class="i-desc" data-en="Grilled pork chop, egg, pickles" data-vi="Sườn nướng, trứng, đồ chua">Grilled pork chop, egg, pickles</div></div><div class="i-price">$13</div></div>
+        <div class="item"><div><div class="i-name" data-en="Fresh Spring Rolls (2)" data-vi="Gỏi Cuốn (2 cuốn)">Fresh Spring Rolls (2)</div><div class="i-desc" data-en="Shrimp & pork, peanut sauce" data-vi="Tôm thịt, sốt đậu phộng">Shrimp &amp; pork, peanut sauce</div></div><div class="i-price">$6</div></div>
+        <div class="item"><div><div class="i-name" data-en="Cà Phê Sữa Đá" data-vi="Cà Phê Sữa Đá">Cà Phê Sữa Đá<span class="vibe" data-en="Iced" data-vi="Đá">Iced</span></div><div class="i-desc" data-en="Vietnamese iced coffee" data-vi="Cà phê sữa đá truyền thống">Vietnamese iced coffee</div></div><div class="i-price">$5</div></div>
+        <div class="item"><div><div class="i-name" data-en="Fresh Lime Soda" data-vi="Soda Chanh">Fresh Lime Soda</div><div class="i-desc" data-en="Soda chanh — sweet & tart" data-vi="Soda chanh — chua ngọt">Soda chanh — sweet &amp; tart</div></div><div class="i-price">$4</div></div>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      <a class="btn btn-primary" href="#order" data-en="Start your order" data-vi="Bắt đầu đặt món">Start your order</a>
+    </div>
+  </div>
+</section>
+
+<!-- FRESH GALLERY -->
+<section class="block fresh-section">
+  <div class="wrap">
+    <div class="lead" style="justify-content:center;text-align:center">
+      <div>
+        <h2 data-en="Made fresh, every morning" data-vi="Tươi mới mỗi sáng">Made fresh, every morning</h2>
+        <p style="margin:10px auto 0" data-en="Baked, simmered, and rolled in-house — never frozen." data-vi="Nướng, hầm, và cuốn tại chỗ — không cấp đông.">Baked, simmered, and rolled in-house — never frozen.</p>
+      </div>
+    </div>
+    <!-- [PHOTO] swap each square with a real dish photo -->
+    <div class="gallery">
+      <div class="sq g1"><img src="uploads/deli-g1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span class="cap" data-en="Bánh mì" data-vi="Bánh mì">Bánh mì</span></div>
+      <div class="sq g2"><img src="uploads/deli-g2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span class="cap" data-en="Spring rolls" data-vi="Gỏi cuốn">Spring rolls</span></div>
+      <div class="sq g3"><img src="uploads/deli-g3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span class="cap" data-en="Phở bò" data-vi="Phở bò">Phở bò</span></div>
+      <div class="sq g4"><img src="uploads/deli-g4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span class="cap" data-en="Cơm tấm" data-vi="Cơm tấm">Cơm tấm</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="block">
+  <div class="wrap why">
+    <div class="photo-sq"><img src="uploads/deli-story2.jpg" alt="Cook preparing fresh Vietnamese dishes" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div>
+      <div class="kicker" data-en="Our story" data-vi="Câu chuyện của tiệm">Our story</div>
+      <h2 data-en="A family recipe, three decades in." data-vi="Công thức gia đình, hơn ba mươi năm.">A family recipe, three decades in.</h2>
+      <ul>
+        <li><span class="dot">✓</span><span data-en="Broth simmered overnight — the way grandma did it." data-vi="Nước lèo hầm qua đêm — đúng kiểu của bà.">Broth simmered overnight — the way grandma did it.</span></li>
+        <li><span class="dot">✓</span><span data-en="Bread baked fresh and toasted to order." data-vi="Bánh mì nướng tươi, làm nóng khi gọi.">Bread baked fresh and toasted to order.</span></li>
+        <li><span class="dot">✓</span><span data-en="Catering trays for parties, offices, and events." data-vi="Khay lớn cho tiệc, văn phòng, và sự kiện.">Catering trays for parties, offices, and events.</span></li>
+        <li><span class="dot">✓</span><span data-en="Vietnamese & English — order however you're comfortable." data-vi="Tiếng Việt & tiếng Anh — gọi món thoải mái.">Vietnamese &amp; English — order however you're comfortable.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING BANNER -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="cater">
+      <div>
+        <h2 data-en="Feeding a crowd?" data-vi="Cần đãi tiệc đông?">Feeding a crowd?</h2>
+        <p data-en="Party trays of bánh mì, spring rolls, and rice — order 24 hours ahead and we'll have it ready." data-vi="Khay bánh mì, gỏi cuốn, và cơm — đặt trước 24 giờ, tiệm chuẩn bị sẵn cho bạn.">Party trays of bánh mì, spring rolls, and rice — order 24 hours ahead and we'll have it ready.</p>
+      </div>
+      <a class="btn" href="#order" data-en="Plan catering" data-vi="Đặt tiệc">Plan catering</a>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT + ORDER -->
+<section class="block" style="background:var(--bg2)" id="order">
+  <div class="wrap visit">
+    <div class="visit-card">
+      <h3 data-en="Hours & Location" data-vi="Giờ & Địa chỉ">Hours &amp; Location</h3>
+      <div class="row"><span data-en="Mon – Fri" data-vi="Thứ 2 – 6">Mon – Fri</span><span>9:00 – 20:00</span></div>
+      <div class="row"><span data-en="Sat – Sun" data-vi="Thứ 7 – CN">Sat – Sun</span><span>8:30 – 21:00</span></div>
+      <div class="row"><span data-en="Phone" data-vi="Điện thoại">Phone</span><span>(206) 555-0177</span></div>
+      <div class="row"><span data-en="Address" data-vi="Địa chỉ">Address</span><span>1208 S Jackson St, Seattle</span></div>
+    </div>
+    <div class="order-card">
+      <h3 data-en="Order in 2 minutes" data-vi="Đặt món trong 2 phút">Order in 2 minutes</h3>
+      <p data-en="Pick it up hot or get it delivered. Catering? Order a day ahead." data-vi="Lấy nóng tại tiệm hoặc giao tận nơi. Đặt tiệc? Gọi trước một ngày.">Pick it up hot or get it delivered. Catering? Order a day ahead.</p>
+      <!-- LINK: connect to a real ordering / POS system -->
+      <a class="btn" href="#" data-en="Order Online" data-vi="Đặt Món Ngay">Order Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">Bến Thành <b>Deli</b></div>
+        <div class="socials">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">ig</a>
+          <a href="#" title="Zalo">Zalo</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-en="Visit" data-vi="Ghé Thăm">Visit</h4>
+        <p>1208 S Jackson St</p>
+        <p>Seattle, WA 98144</p>
+        <p>(206) 555-0177</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-en="Hours" data-vi="Giờ Mở">Hours</h4>
+        <p data-en="Mon–Fri 9–8" data-vi="T2–T6 9–20">Mon–Fri 9–8</p>
+        <p data-en="Sat–Sun 8:30–9" data-vi="T7–CN 8:30–21">Sat–Sun 8:30–9</p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© 2026 Bến Thành Deli · <span data-en="Concept / Sample" data-vi="Mẫu thiết kế">Concept / Sample</span></span>
+      <span><span data-en="Website by" data-vi="Thiết kế bởi">Website by</span> <a href="#">HuyBuilds Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Language toggle
+  (function(){
+    var buttons = document.querySelectorAll('#lang button');
+    function setLang(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-'+lang+']').forEach(function(el){
+        el.textContent = el.getAttribute('data-'+lang);
+      });
+      buttons.forEach(function(b){ b.classList.toggle('on', b.dataset.lang===lang); });
+    }
+    buttons.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+  })();
+</script>
+</body>
+</html>

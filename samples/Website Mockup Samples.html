@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HuyBuilds Studio — Sample Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF5ED; --sand:#F5EDE1; --card:#FFFFFF;
+    --ink:#2C2620; --muted:#6E6358; --line:#E9DECF;
+    --terra:#C2603A; --terra-dark:#A44E2D; --sage:#6E8C5A; --amber:#CC9A46;
+    --shadow:0 18px 46px -22px rgba(44,38,32,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{letter-spacing:-.015em;line-height:1.08}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:baseline;gap:2px}
+  .logo .a{font-weight:800;font-size:22px;color:var(--ink)}
+  .logo .b{font-weight:800;font-size:22px;color:var(--terra)}
+  .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);align-self:center;margin-left:3px}
+  .logo .st{font-size:13px;color:var(--muted);align-self:center;margin-left:9px;letter-spacing:.05em}
+  .nav a.cta{display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:999px;background:var(--terra);color:#fff;font-weight:700;font-size:14px}
+
+  /* INTRO */
+  .intro{padding:56px 0 30px;max-width:680px}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+  .intro h1{font-size:clamp(34px,5vw,52px);font-weight:800;margin-bottom:16px;text-wrap:balance}
+  .intro p{font-size:18px;color:var(--muted);max-width:56ch}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+  .chip .sw{width:9px;height:9px;border-radius:50%}
+
+  /* SHOWCASE */
+  .shows{display:flex;flex-direction:column;gap:30px;padding:18px 0 70px}
+  .show{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:30px;align-items:center}
+  .show.flip{grid-template-columns:270px minmax(0,1fr)}
+  .show.flip .stage{order:2}
+  .show.flip .meta{order:1}
+
+  /* device stage */
+  .stage{position:relative;display:flex;align-items:flex-end;gap:18px;min-width:0}
+  .browser{flex:1;min-width:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 16px 38px -20px rgba(44,38,32,.45);background:#fff}
+  .bbar{display:flex;align-items:center;gap:7px;padding:10px 12px;background:color-mix(in srgb,var(--ink) 5%,#fff);border-bottom:1px solid var(--line)}
+  .bbar .d{width:10px;height:10px;border-radius:50%}
+  .bbar .url{flex:1;margin-left:6px;height:22px;border-radius:11px;background:var(--sand);display:flex;align-items:center;padding:0 12px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--muted);overflow:hidden;white-space:nowrap}
+  .vp{position:relative;overflow:hidden;background:#fff}
+  .vp iframe{border:0;transform-origin:top left;pointer-events:none}
+
+  /* phone */
+  .phone{flex:none;width:158px;padding:7px;background:var(--ink);border-radius:26px;box-shadow:0 16px 38px -18px rgba(44,38,32,.5)}
+  .phone .pscreen{position:relative;border-radius:20px;overflow:hidden;background:#fff}
+  .phone .notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:46px;height:5px;border-radius:3px;background:rgba(255,255,255,.6);z-index:2}
+  .phone .vp iframe{pointer-events:none}
+
+  /* meta */
+  .meta{display:flex;flex-direction:column;gap:12px}
+  .meta .kind{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--sage)}
+  .meta h2{font-size:27px;font-weight:800}
+  .meta .desc{font-size:15.5px;color:var(--muted);line-height:1.5}
+  .meta .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+  .meta .tag{font-size:12px;font-weight:600;color:var(--ink);background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .meta .open{margin-top:6px;display:inline-flex;align-items:center;gap:9px;align-self:flex-start;height:48px;padding:0 22px;border-radius:999px;background:var(--terra);color:#fff;font-weight:700;font-size:15px;box-shadow:0 10px 22px -10px rgba(194,96,58,.7);transition:transform .15s ease,background .2s}
+  .meta .open:hover{transform:translateY(-2px);background:var(--terra-dark)}
+  .meta .open .arr{transition:transform .15s ease}
+  .meta .open:hover .arr{transform:translateX(3px)}
+  .meta .ghost{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--muted)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 40px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+  .foot .fl{display:flex;align-items:baseline;gap:2px}
+  .foot .fl .a{font-weight:800;font-size:18px;color:#fff}
+  .foot .fl .b{font-weight:800;font-size:18px;color:var(--amber)}
+  .foot .fl .st{font-size:13px;color:rgba(255,255,255,.6);margin-left:8px;align-self:center}
+  .foot .note{font-size:13px;color:rgba(255,255,255,.6)}
+
+  @media(max-width:880px){
+    .show,.show.flip{grid-template-columns:1fr;gap:24px}
+    .show.flip .stage{order:1}.show.flip .meta{order:2}
+    .stage{flex-direction:column;align-items:stretch}
+    .phone{align-self:flex-start;margin-top:-44px;margin-left:auto;margin-right:8px;position:relative;z-index:3}
+  }
+  @media(max-width:520px){
+    .phone{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <span class="a">Huy</span><span class="b">Builds</span><span class="dot"></span><span class="st">Studio</span>
+    </div>
+    <a class="cta" href="#" data-en="Message me">Message me</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="intro">
+    <div class="eyebrow">Sample work · Mẫu website</div>
+    <h1>A few sites I've built for local shops.</h1>
+    <p>Each of these is a real, working concept — bilingual EN / VI, fast on a phone, and ready for your photos. Open any one full-size, then picture it with your own name on it.</p>
+    <div class="legend">
+      <span class="chip"><span class="sw" style="background:#c67c7c"></span>Nail &amp; spa</span>
+      <span class="chip"><span class="sw" style="background:#c5362b"></span>Vietnamese deli</span>
+      <span class="chip"><span class="sw" style="background:#b85772"></span>Café &amp; bakery</span>
+      <span class="chip"><span class="sw" style="background:var(--sage)"></span>EN / VI on every site</span>
+    </div>
+  </section>
+
+  <section class="shows">
+
+    <!-- NAIL SPA -->
+    <article class="show">
+      <div class="stage">
+        <a class="browser" href="nail-spa-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Orchid Nail & Spa full site">
+          <div class="bbar">
+            <span class="d" style="background:#E0654C"></span><span class="d" style="background:#DDA03B"></span><span class="d" style="background:#6E8C5A"></span>
+            <span class="url">orchidnailspa.com</span>
+          </div>
+          <div class="vp" data-vp="desk"><iframe src="nail-spa-mockup-sample.html" scrolling="no" tabindex="-1" title="Orchid Nail & Spa desktop preview"></iframe></div>
+        </a>
+        <a class="phone" href="nail-spa-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Orchid Nail & Spa mobile">
+          <div class="pscreen"><span class="notch"></span><div class="vp" data-vp="phone"><iframe src="nail-spa-mockup-sample.html" scrolling="no" tabindex="-1" title="Orchid Nail & Spa mobile preview"></iframe></div></div>
+        </a>
+      </div>
+      <div class="meta">
+        <span class="kind">Nail &amp; Spa</span>
+        <h2>Orchid Nail &amp; Spa</h2>
+        <p class="desc">Calm, elegant booking site with a service menu, before/after slider, and one-tap booking — the polished look a salon deserves.</p>
+        <div class="tags"><span class="tag">Booking</span><span class="tag">Service menu</span><span class="tag">Before / after</span><span class="tag">EN / VI</span></div>
+        <a class="open" href="nail-spa-mockup-sample.html" target="_blank" rel="noopener">Open full site <span class="arr">→</span></a>
+      </div>
+    </article>
+
+    <!-- VIET DELI -->
+    <article class="show flip">
+      <div class="stage">
+        <a class="browser" href="viet-deli-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Bến Thành Deli full site">
+          <div class="bbar">
+            <span class="d" style="background:#E0654C"></span><span class="d" style="background:#DDA03B"></span><span class="d" style="background:#6E8C5A"></span>
+            <span class="url">benthanhdeli.com</span>
+          </div>
+          <div class="vp" data-vp="desk"><iframe src="viet-deli-mockup-sample.html" scrolling="no" tabindex="-1" title="Bến Thành Deli desktop preview"></iframe></div>
+        </a>
+        <a class="phone" href="viet-deli-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Bến Thành Deli mobile">
+          <div class="pscreen"><span class="notch"></span><div class="vp" data-vp="phone"><iframe src="viet-deli-mockup-sample.html" scrolling="no" tabindex="-1" title="Bến Thành Deli mobile preview"></iframe></div></div>
+        </a>
+      </div>
+      <div class="meta">
+        <span class="kind">Vietnamese Deli</span>
+        <h2>Bến Thành Deli</h2>
+        <p class="desc">Appetizing, energetic menu site for a bánh mì &amp; phở shop — full menu, online ordering, and a catering call-to-action.</p>
+        <div class="tags"><span class="tag">Full menu</span><span class="tag">Online order</span><span class="tag">Catering</span><span class="tag">EN / VI</span></div>
+        <a class="open" href="viet-deli-mockup-sample.html" target="_blank" rel="noopener">Open full site <span class="arr">→</span></a>
+      </div>
+    </article>
+
+    <!-- CAFE BAKERY -->
+    <article class="show">
+      <div class="stage">
+        <a class="browser" href="cafe-bakery-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Lành Café & Bakehouse full site">
+          <div class="bbar">
+            <span class="d" style="background:#E0654C"></span><span class="d" style="background:#DDA03B"></span><span class="d" style="background:#6E8C5A"></span>
+            <span class="url">lanhbakehouse.com</span>
+          </div>
+          <div class="vp" data-vp="desk"><iframe src="cafe-bakery-mockup-sample.html" scrolling="no" tabindex="-1" title="Lành Café & Bakehouse desktop preview"></iframe></div>
+        </a>
+        <a class="phone" href="cafe-bakery-mockup-sample.html" target="_blank" rel="noopener" aria-label="Open Lành Café & Bakehouse mobile">
+          <div class="pscreen"><span class="notch"></span><div class="vp" data-vp="phone"><iframe src="cafe-bakery-mockup-sample.html" scrolling="no" tabindex="-1" title="Lành Café & Bakehouse mobile preview"></iframe></div></div>
+        </a>
+      </div>
+      <div class="meta">
+        <span class="kind">Café &amp; Bakery</span>
+        <h2>Lành Café &amp; Bakehouse</h2>
+        <p class="desc">Cozy, warm site for a coffee &amp; pastry spot — drinks and bakehouse menu, custom-cake ordering, and order-ahead.</p>
+        <div class="tags"><span class="tag">Menu</span><span class="tag">Order ahead</span><span class="tag">Custom cakes</span><span class="tag">EN / VI</span></div>
+        <a class="open" href="cafe-bakery-mockup-sample.html" target="_blank" rel="noopener">Open full site <span class="arr">→</span></a>
+      </div>
+    </article>
+
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="fl"><span class="a">Huy</span><span class="b">Builds</span><span class="st">Studio · Sample work</span></div>
+    <span class="note">Concepts for demonstration · Your business, found online — done for you.</span>
+  </div>
+</footer>
+
+<script>
+  // Scale each live iframe preview to fit its frame.
+  (function(){
+    var DESK = { w: 1360, h: 900 };   // rendered desktop size
+    var PHONE = { w: 390, h: 720 };   // rendered phone size
+    function fit(vp){
+      var kind = vp.getAttribute('data-vp');
+      var src = kind === 'phone' ? PHONE : DESK;
+      var iframe = vp.querySelector('iframe');
+      var avail = vp.clientWidth;
+      var scale = avail / src.w;
+      iframe.style.width = src.w + 'px';
+      iframe.style.height = src.h + 'px';
+      iframe.style.transform = 'scale(' + scale + ')';
+      vp.style.height = (src.h * scale) + 'px';
+    }
+    function fitAll(){ document.querySelectorAll('.vp').forEach(fit); }
+    window.addEventListener('load', fitAll);
+    window.addEventListener('resize', function(){ clearTimeout(window.__t); window.__t = setTimeout(fitAll, 120); });
+    fitAll();
+  })();
+</script>
+</body>
+</html>
