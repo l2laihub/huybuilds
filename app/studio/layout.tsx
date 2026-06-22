@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./studio.css";
 import { LangProvider } from "./i18n";
+import { PostHogProvider } from "./components/PostHogProvider";
 import { StudioNav } from "./components/StudioNav";
 import { StudioFooter } from "./components/StudioFooter";
 
@@ -49,11 +50,13 @@ export default function StudioLayout({
 }) {
   return (
     <div className={`studio-theme min-h-screen ${hanken.variable}`}>
-      <LangProvider>
-        <StudioNav />
-        <main>{children}</main>
-        <StudioFooter />
-      </LangProvider>
+      <PostHogProvider>
+        <LangProvider>
+          <StudioNav />
+          <main>{children}</main>
+          <StudioFooter />
+        </LangProvider>
+      </PostHogProvider>
     </div>
   );
 }

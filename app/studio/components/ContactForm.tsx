@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { useT } from "../i18n";
+import { useLang, useT } from "../i18n";
 import { CONTACT, smsHref } from "../config";
+import { track } from "../lib/analytics";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export function ContactForm() {
   const t = useT();
+  const { lang } = useLang();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -36,6 +38,10 @@ export function ContactForm() {
       });
       const json = (await res.json()) as { ok: boolean; code?: string };
       if (json.ok) {
+        track("contact_form_submitted", {
+          business_type: String(data.businessType || "") || undefined,
+          lang,
+        });
         setStatus("success");
         form.reset();
         return;

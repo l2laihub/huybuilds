@@ -2,14 +2,15 @@
 
 import { useT } from "../i18n";
 import { CONTACT, smsHref, mailtoHref } from "../config";
+import { track } from "../lib/analytics";
 import { ContactForm } from "./ContactForm";
 
 export function Contact() {
   const t = useT();
   const rows = [
-    { href: smsHref(CONTACT.phoneDisplay), label: t("cCall"), value: CONTACT.phoneDisplay, primary: true },
-    { href: CONTACT.facebookUrl, label: t("cFb"), value: CONTACT.facebookDisplay, primary: false },
-    { href: mailtoHref(CONTACT.email), label: t("cEmail"), value: CONTACT.email, primary: false },
+    { href: smsHref(CONTACT.phoneDisplay), label: t("cCall"), value: CONTACT.phoneDisplay, primary: true, method: "call" },
+    { href: CONTACT.facebookUrl, label: t("cFb"), value: CONTACT.facebookDisplay, primary: false, method: "facebook" },
+    { href: mailtoHref(CONTACT.email), label: t("cEmail"), value: CONTACT.email, primary: false, method: "email" },
   ];
 
   return (
@@ -21,6 +22,7 @@ export function Contact() {
         <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24 }}>
           {rows.map((row) => (
             <a key={row.label} href={row.href}
+              onClick={() => track("contact_clicked", { method: row.method })}
               target={row.href.startsWith("http") ? "_blank" : undefined}
               rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
               style={{

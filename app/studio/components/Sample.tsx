@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 import { useLang, useT } from "../i18n";
+import { track } from "../lib/analytics";
 
 const DEMO_URL = "https://studio-huybuilds.netlify.app/";
 const SAMPLES_BASE = "/studio/samples/";
@@ -179,6 +180,7 @@ export function Sample() {
               <div className="flex items-end" style={{ gap: 16, flex: "1 1 0", minWidth: 0 }}>
                 <a
                   href={s.href}
+                  onClick={() => track("sample_site_clicked", { slug: s.slug, cta: s.cta })}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Open ${s.title} full site`}
@@ -218,6 +220,7 @@ export function Sample() {
 
                 <a
                   href={s.href}
+                  onClick={() => track("sample_site_clicked", { slug: s.slug, cta: s.cta })}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Open ${s.title} on mobile`}
@@ -269,6 +272,7 @@ export function Sample() {
                   </div>
                   <a
                     href={s.href}
+                    onClick={() => track("sample_site_clicked", { slug: s.slug, cta: s.cta })}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 16, height: 44, padding: "0 20px", borderRadius: 999, background: "var(--st-terracotta)", color: "#fff", fontWeight: 700, fontSize: 14.5, textDecoration: "none" }}

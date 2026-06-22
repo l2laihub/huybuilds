@@ -1,6 +1,7 @@
 "use client";
 
 import { useLang } from "../i18n";
+import { track } from "../lib/analytics";
 
 export function LangToggle() {
   const { lang, setLang } = useLang();
@@ -20,7 +21,10 @@ export function LangToggle() {
         <button
           key={code}
           type="button"
-          onClick={() => setLang(code)}
+          onClick={() => {
+            track("lang_toggled", { to: code });
+            setLang(code);
+          }}
           aria-pressed={lang === code}
           className="st-btn"
           style={{
