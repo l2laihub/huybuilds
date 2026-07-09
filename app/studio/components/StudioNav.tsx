@@ -6,7 +6,7 @@ import { Wordmark } from "./Wordmark";
 import { LangToggle } from "./LangToggle";
 
 const NAV = [
-  { href: "#proof", key: "navWork" as const },
+  { href: "#work", key: "navWork" as const },
   { href: "#whatido", key: "navWhat" as const },
   { href: "#pricing", key: "navPricing" as const },
 ];
