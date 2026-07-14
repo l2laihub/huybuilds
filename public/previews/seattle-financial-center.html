@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Seattle Financial Center — Concept Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#123524; --green:#1E7A46; --green-bright:#2E9E5B;
+    --gold:#C0913C; --gold-soft:#E7D3A1;
+    --cream:#F7F2E7; --cream-2:#EFE7D4; --paper:#FCFAF4;
+    --ink:#182019; --muted:#5C6B60; --line:#DED3BC;
+    --shadow:0 18px 50px -24px rgba(18,53,36,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--ink);
+    background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .lang-vi{display:none}
+  body.vi .lang-en{display:none}
+  body.vi .lang-vi{display:inline}
+  body.vi .lang-vi.block{display:block}
+
+  /* preview ribbon */
+  .preview-bar{background:var(--forest);color:var(--gold-soft);font-size:12.5px;
+    letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 14px}
+  .preview-bar b{color:#fff;font-weight:600}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:40;background:rgba(247,242,231,.86);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:40px;height:40px;flex:0 0 auto}
+  .brand .name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.05;color:var(--forest)}
+  .brand .name small{display:block;font-family:'Instrument Sans',sans-serif;font-weight:500;
+    font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-top:2px}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:15px;font-weight:500}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--forest)}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .toggle{display:inline-flex;border:1px solid var(--green);border-radius:999px;overflow:hidden;font-size:13px;font-weight:600}
+  .toggle button{background:transparent;border:0;padding:6px 13px;cursor:pointer;color:var(--green);font-family:inherit;font-weight:600}
+  .toggle button.on{background:var(--green);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;
+    padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;border:0;cursor:pointer;
+    font-family:inherit;transition:transform .15s,box-shadow .2s,background .2s}
+  .btn:hover{background:var(--forest);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+  .btn.ghost:hover{background:var(--forest);color:#fff}
+  .btn.gold{background:var(--gold);color:#20180a}
+  .btn.gold:hover{background:#a97c2c;color:#fff}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(120% 90% at 88% -10%, rgba(46,158,91,.16), transparent 60%),
+    radial-gradient(90% 70% at 0% 110%, rgba(192,145,60,.14), transparent 55%),
+    var(--cream)}
+  .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+    padding:76px 0 84px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:22px}
+  .eyebrow::before{content:"";width:26px;height:1.5px;background:var(--gold)}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);color:var(--forest)}
+  .hero h1 em{font-style:italic;color:var(--green-bright)}
+  .hero p.lead{font-size:19px;color:var(--muted);margin:24px 0 32px;max-width:33ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-note{margin-top:22px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .hero-note svg{flex:0 0 auto}
+
+  /* hero card */
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;
+    padding:28px;box-shadow:var(--shadow);position:relative}
+  .card .tag{display:inline-block;background:var(--gold-soft);color:#6b4f18;font-weight:600;
+    font-size:12.5px;letter-spacing:.06em;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  .card h3{font-size:23px;color:var(--forest);margin-bottom:6px}
+  .card .when{color:var(--green);font-weight:600;font-size:15px;margin-bottom:16px}
+  .card ul{list-style:none;display:grid;gap:11px;margin-bottom:22px}
+  .card li{display:flex;gap:11px;font-size:15px;color:var(--ink)}
+  .card li svg{flex:0 0 auto;margin-top:3px}
+  .card .free{position:absolute;top:-14px;right:22px;background:var(--green);color:#fff;
+    font-weight:700;font-size:13px;letter-spacing:.05em;padding:7px 14px;border-radius:999px;box-shadow:var(--shadow)}
+  @media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:36px;padding:52px 0 60px}
+    .hero p.lead{max-width:none}}
+
+  /* strip */
+  .strip{background:var(--forest);color:var(--cream)}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:34px 56px;justify-content:center;padding:30px 28px;text-align:center}
+  .strip .stat{min-width:150px}
+  .strip .n{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:#fff}
+  .strip .l{font-size:13.5px;color:var(--gold-soft);letter-spacing:.03em;margin-top:2px}
+
+  /* sections */
+  section.pad{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:50px}
+  .sec-head .kick{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(28px,3.6vw,42px);color:var(--forest)}
+  .sec-head p{font-size:18px;color:var(--muted);margin-top:16px}
+
+  /* topics grid */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .topic{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 20px;
+    transition:transform .18s,box-shadow .2s,border-color .2s}
+  .topic:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--green-bright)}
+  .topic .ic{width:42px;height:42px;border-radius:11px;background:rgba(46,158,91,.12);
+    display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  .topic h3{font-size:17.5px;color:var(--forest);font-weight:600;line-height:1.2}
+  .topic .tsub{font-size:13.5px;color:var(--muted);margin-top:7px;line-height:1.45}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+  /* who / split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .who-visual{background:linear-gradient(150deg,var(--green),var(--forest));border-radius:24px;
+    padding:44px;color:var(--cream);position:relative;overflow:hidden;min-height:340px;
+    display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
+  .who-visual .quote{font-family:'Fraunces',serif;font-size:26px;line-height:1.28;font-weight:500}
+  .who-visual .by{margin-top:18px;font-size:14px;color:var(--gold-soft);letter-spacing:.04em}
+  .who-visual .deco{position:absolute;top:-40px;right:-30px;width:200px;height:200px;
+    border:1.5px solid rgba(231,211,161,.35);border-radius:50%}
+  .who-visual .deco2{position:absolute;top:20px;right:26px;width:120px;height:120px;
+    border:1.5px solid rgba(231,211,161,.25);border-radius:50%}
+  .feature-list{list-style:none;display:grid;gap:20px}
+  .feature-list li{display:flex;gap:15px}
+  .feature-list .fi{width:38px;height:38px;flex:0 0 auto;border-radius:10px;background:rgba(46,158,91,.12);
+    display:flex;align-items:center;justify-content:center}
+  .feature-list h3{font-size:18px;color:var(--forest);margin-bottom:3px}
+  .feature-list p{font-size:15.5px;color:var(--muted)}
+  @media(max-width:860px){.split{grid-template-columns:1fr;gap:36px}}
+
+  /* CTA band + form */
+  .cta-band{background:
+    radial-gradient(80% 120% at 100% 0%, rgba(46,158,91,.2), transparent 55%),var(--cream-2)}
+  .form-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;
+    padding:40px;box-shadow:var(--shadow);max-width:560px;margin:0 auto}
+  .form-card h2{font-size:30px;color:var(--forest);margin-bottom:8px}
+  .form-card p.sub{color:var(--muted);margin-bottom:26px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13.5px;font-weight:600;color:var(--forest);margin-bottom:6px}
+  .field input,.field select{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:11px;
+    font-family:inherit;font-size:15.5px;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:2px solid var(--green-bright);outline-offset:1px;border-color:transparent}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-card .btn{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:15px}
+  .form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}.form-card{padding:28px}}
+
+  /* footer */
+  footer{background:var(--forest);color:var(--cream);padding:56px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;
+    padding-bottom:28px;border-bottom:1px solid rgba(231,211,161,.2)}
+  .foot-brand .name{font-family:'Fraunces',serif;font-size:21px;color:#fff}
+  .foot-brand p{color:var(--gold-soft);font-size:14px;margin-top:8px;max-width:34ch}
+  .foot-cols{display:flex;gap:56px}
+  .foot-cols h4{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
+  .foot-cols a{display:block;color:var(--cream);font-size:14.5px;margin-bottom:9px;opacity:.86}
+  .foot-cols a:hover{opacity:1}
+  .disclaimer{font-size:12px;line-height:1.7;color:rgba(247,242,231,.6);margin-top:26px;max-width:900px}
+  .foot-legal{margin-top:20px;font-size:12.5px;color:rgba(247,242,231,.55);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* instructor */
+  .instructor{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:center}
+  .ins-photo{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
+    background:linear-gradient(150deg,var(--green),var(--forest));min-height:380px;
+    display:flex;align-items:center;justify-content:center}
+  .ins-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;min-height:380px}
+  .ins-photo .ins-initials{display:none;font-family:'Fraunces',serif;font-size:92px;color:var(--gold-soft)}
+  .ins-photo.noimg .ins-initials{display:block}
+  .ins-badge{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(18,53,36,.82);
+    color:var(--cream);font-size:13px;font-weight:600;padding:9px 14px;border-radius:10px;text-align:center}
+  .ins-role{color:var(--green);font-weight:600;margin:6px 0 16px;font-size:15.5px}
+  .ins-bio{font-size:17.5px;color:var(--muted);margin-bottom:20px;max-width:46ch}
+  .ins-langs{display:inline-flex;align-items:center;gap:9px;background:var(--gold-soft);color:#6b4f18;
+    font-weight:600;font-size:14px;padding:8px 15px;border-radius:999px;margin-bottom:26px}
+  @media(max-width:860px){.instructor{grid-template-columns:1fr;gap:32px}
+    .ins-photo,.ins-photo img{min-height:320px}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span class="lang-en">Concept preview for <b>Phong &amp; Jennifer</b> — for discussion only, not published. Content &amp; branding are drafts.</span>
+  <span class="lang-vi">Bản xem trước ý tưởng cho <b>Phong &amp; Jennifer</b> — chỉ để thảo luận, chưa đăng. Nội dung &amp; thương hiệu là bản nháp.</span>
+</div>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#123524"/>
+        <path d="M14 30c3-1 4.5-4 6-8s3.5-7 8-8" stroke="#2E9E5B" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M14 34h20" stroke="#C0913C" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="30" cy="16" r="2.4" fill="#C0913C"/>
+      </svg>
+      <div class="name">Seattle Financial Center
+        <small>Financial Education</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#learn"><span class="lang-en">What You'll Learn</span><span class="lang-vi">Bạn Sẽ Học</span></a>
+      <a href="#workshops"><span class="lang-en">Workshops</span><span class="lang-vi">Lớp Học</span></a>
+      <a href="#who"><span class="lang-en">Who We Help</span><span class="lang-vi">Chúng Tôi Giúp</span></a>
+      <a href="#reserve"><span class="lang-en">Contact</span><span class="lang-vi">Liên Hệ</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="toggle" role="group" aria-label="Language">
+        <button id="en-btn" class="on" onclick="setLang('en')">EN</button>
+        <button id="vi-btn" onclick="setLang('vi')">VI</button>
+      </div>
+      <a href="#reserve" class="btn"><span class="lang-en">Reserve a Seat</span><span class="lang-vi">Giữ Chỗ</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow"><span class="lang-en">Seattle Financial Center · Bellevue · Now in Vietnamese &amp; English</span><span class="lang-vi">Seattle Financial Center · Bellevue · Nay có tiếng Việt &amp; tiếng Anh</span></span>
+      <h1>
+        <span class="lang-en">Financial education for<br>your family's <em>future</em>.</span>
+        <span class="lang-vi block">Giáo dục tài chính cho<br><em>tương lai</em> gia đình bạn.</span>
+      </h1>
+      <p class="lead">
+        <span class="lang-en">Free, friendly workshops that make money make sense — taught in Vietnamese and English, for families in our community.</span>
+        <span class="lang-vi">Các lớp học miễn phí, gần gũi giúp bạn hiểu rõ về tiền bạc — giảng dạy bằng tiếng Việt và tiếng Anh, cho các gia đình trong cộng đồng.</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#reserve" class="btn"><span class="lang-en">Reserve a free seat</span><span class="lang-vi">Giữ chỗ miễn phí</span></a>
+        <a href="#reserve" class="btn ghost"><span class="lang-en">Book a free consultation</span><span class="lang-vi">Đặt buổi tư vấn miễn phí</span></a>
+      </div>
+      <div class="hero-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1E7A46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lang-en">No cost, no pressure — just clear information you can use.</span>
+        <span class="lang-vi">Miễn phí, không áp lực — chỉ là thông tin rõ ràng bạn có thể dùng.</span>
+      </div>
+    </div>
+    <div class="card">
+      <span class="free"><span class="lang-en">FREE</span><span class="lang-vi">MIỄN PHÍ</span></span>
+      <span class="tag"><span class="lang-en">Upcoming workshop</span><span class="lang-vi">Lớp học sắp tới</span></span>
+      <h3><span class="lang-en">Financial Foundation Basics</span><span class="lang-vi">Nền Tảng Tài Chính Cơ Bản</span></h3>
+      <div class="when"><span class="lang-en">Saturday · 10:00 AM · In person &amp; online</span><span class="lang-vi">Thứ Bảy · 10:00 SÁNG · Trực tiếp &amp; trực tuyến</span></div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#C0913C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lang-en">Find money you're already earning</span><span class="lang-vi">Tìm ra khoản tiền bạn đang kiếm được</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#C0913C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lang-en">Build a safety net for your family</span><span class="lang-vi">Xây dựng quỹ an toàn cho gia đình</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#C0913C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lang-en">Plan for college &amp; retirement</span><span class="lang-vi">Lập kế hoạch học đại học &amp; hưu trí</span></li>
+      </ul>
+      <a href="#reserve" class="btn gold" style="width:100%;justify-content:center">
+        <span class="lang-en">Save my seat</span><span class="lang-vi">Giữ chỗ cho tôi</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><div class="n">100%</div><div class="l"><span class="lang-en">Free to attend</span><span class="lang-vi">Tham dự miễn phí</span></div></div>
+    <div class="stat"><div class="n">2</div><div class="l"><span class="lang-en">Languages · VN &amp; EN</span><span class="lang-vi">Ngôn ngữ · Việt &amp; Anh</span></div></div>
+    <div class="stat"><div class="n">8</div><div class="l"><span class="lang-en">Topics covered</span><span class="lang-vi">Chủ đề</span></div></div>
+    <div class="stat"><div class="n">All ages</div><div class="l"><span class="lang-en">Families welcome</span><span class="lang-vi">Chào đón mọi gia đình</span></div></div>
+  </div>
+</div>
+
+<!-- LEARN -->
+<section class="pad" id="learn">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kick"><span class="lang-en">What you'll learn</span><span class="lang-vi">Những điều bạn sẽ học</span></div>
+      <h2><span class="lang-en">The money topics that matter most</span><span class="lang-vi">Những chủ đề tiền bạc quan trọng nhất</span></h2>
+      <p><span class="lang-en">Plain-language education on the everyday decisions that shape a family's future — no jargon, no sales pitch.</span><span class="lang-vi">Kiến thức bằng ngôn ngữ dễ hiểu về những quyết định hằng ngày định hình tương lai gia đình — không thuật ngữ, không chào hàng.</span></p>
+    </div>
+    <div class="grid" id="topic-grid"></div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="pad" id="who" style="background:var(--cream-2)">
+  <div class="wrap split">
+    <div class="who-visual reveal">
+      <div class="deco"></div><div class="deco2"></div>
+      <div class="quote"><span class="lang-en">"When one family learns, the whole family grows stronger — for generations."</span><span class="lang-vi">"Khi một gia đình học hỏi, cả gia đình vững mạnh hơn — qua nhiều thế hệ."</span></div>
+      <div class="by"><span class="lang-en">Our promise to the community</span><span class="lang-vi">Lời hứa của chúng tôi với cộng đồng</span></div>
+    </div>
+    <div>
+      <div class="sec-head reveal" style="margin-bottom:34px">
+        <div class="kick"><span class="lang-en">Who we help</span><span class="lang-vi">Chúng tôi giúp ai</span></div>
+        <h2><span class="lang-en">Built for our families</span><span class="lang-vi">Dành cho các gia đình của chúng ta</span></h2>
+      </div>
+      <ul class="feature-list reveal">
+        <li>
+          <div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke="#1E7A46" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div><h3><span class="lang-en">Parents &amp; grandparents</span><span class="lang-vi">Cha mẹ &amp; ông bà</span></h3><p><span class="lang-en">Protect what you've built and plan your legacy, explained patiently in Vietnamese.</span><span class="lang-vi">Bảo vệ những gì bạn đã gây dựng và lên kế hoạch di sản, giải thích tận tình bằng tiếng Việt.</span></p></div>
+        </li>
+        <li>
+          <div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19V9l8-5 8 5v10" stroke="#1E7A46" stroke-width="2" stroke-linejoin="round"/><path d="M9 19v-6h6v6" stroke="#C0913C" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div><h3><span class="lang-en">The next generation</span><span class="lang-vi">Thế hệ tiếp theo</span></h3><p><span class="lang-en">Adult children building their own future — cash flow, protection, and saving early.</span><span class="lang-vi">Con cái trưởng thành xây dựng tương lai — dòng tiền, bảo vệ và tiết kiệm sớm.</span></p></div>
+        </li>
+        <li>
+          <div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="#1E7A46" stroke-width="2"/><path d="M5 20c1.5-4 12.5-4 14 0" stroke="#C0913C" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><h3><span class="lang-en">Working families</span><span class="lang-vi">Gia đình đi làm</span></h3><p><span class="lang-en">Everyday households who want the basics done right and money that lasts.</span><span class="lang-vi">Những gia đình muốn làm đúng điều cơ bản và giữ tiền bền vững.</span></p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="pad" id="instructor">
+  <div class="wrap instructor">
+    <div class="ins-photo reveal">
+      <img src="/previews/jn.jpg" alt="Jennifer Nguyen" onerror="this.closest('.ins-photo').classList.add('noimg');this.remove();">
+      <span class="ins-initials">JN</span>
+      <span class="ins-badge"><span class="lang-en">Licensed Financial Professional · License #1142178</span><span class="lang-vi">Chuyên Viên Tài Chính Có Giấy Phép · Giấy phép #1142178</span></span>
+    </div>
+    <div class="reveal">
+      <div class="kick" style="color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px">
+        <span class="lang-en">Meet your instructor</span><span class="lang-vi">Gặp giảng viên của bạn</span></div>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);color:var(--forest)">Jennifer Nguyen</h2>
+      <p class="ins-role"><span class="lang-en">Financial Professional · Seattle Financial Center, Bellevue</span><span class="lang-vi">Chuyên Viên Tài Chính · Seattle Financial Center, Bellevue</span></p>
+      <p class="ins-bio"><span class="lang-en">Jennifer leads free, plain-language workshops that help families in our community understand money and build a strong financial foundation — with patience, warmth, and no pressure.</span><span class="lang-vi">Jennifer hướng dẫn các lớp học miễn phí, dễ hiểu, giúp các gia đình trong cộng đồng hiểu về tiền bạc và xây dựng nền tảng tài chính vững chắc — tận tình, gần gũi và không áp lực.</span></p>
+      <div class="ins-langs">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 5c0 6 4 11 8 13M12 3v2M9 18c3-1 6-5 7-9" stroke="#6b4f18" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="lang-en">Speaks Vietnamese &amp; English</span><span class="lang-vi">Nói tiếng Việt &amp; tiếng Anh</span>
+      </div>
+      <div>
+        <a href="#reserve" class="btn"><span class="lang-en">Book time with Jennifer</span><span class="lang-vi">Đặt lịch với Jennifer</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS / CTA -->
+<section class="pad cta-band" id="workshops">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin:0 auto 44px">
+      <div class="kick"><span class="lang-en">Free workshops</span><span class="lang-vi">Lớp học miễn phí</span></div>
+      <h2><span class="lang-en">Learning that leads, not sells</span><span class="lang-vi">Học để hiểu, không phải để mua</span></h2>
+      <p style="margin-left:auto;margin-right:auto"><span class="lang-en">Come learn with your neighbors. Bring your questions and your family — leave with a plan you understand.</span><span class="lang-vi">Đến học cùng những người hàng xóm. Mang theo câu hỏi và gia đình — ra về với một kế hoạch bạn hiểu rõ.</span></p>
+    </div>
+    <div class="form-card reveal" id="reserve">
+      <h2><span class="lang-en">Reserve your seat</span><span class="lang-vi">Giữ chỗ của bạn</span></h2>
+      <p class="sub"><span class="lang-en">Tell us how to reach you — we'll follow up with dates and details.</span><span class="lang-vi">Cho chúng tôi biết cách liên hệ — chúng tôi sẽ gửi lịch và chi tiết.</span></p>
+      <form onsubmit="return previewSubmit(event)">
+        <div class="field">
+          <label><span class="lang-en">Full name</span><span class="lang-vi">Họ và tên</span></label>
+          <input type="text" data-en="Your name" data-vi="Tên của bạn" placeholder="Your name">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" data-en="you@email.com" data-vi="you@email.com" placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label><span class="lang-en">Phone</span><span class="lang-vi">Số điện thoại</span></label>
+            <input type="tel" data-en="(206) 000-0000" data-vi="(206) 000-0000" placeholder="(206) 000-0000">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label><span class="lang-en">I'm interested in</span><span class="lang-vi">Tôi quan tâm đến</span></label>
+            <select>
+              <option class="lang-en">A free workshop</option>
+              <option class="lang-en">A free consultation</option>
+              <option class="lang-en">Both</option>
+            </select>
+          </div>
+          <div class="field">
+            <label><span class="lang-en">Preferred language</span><span class="lang-vi">Ngôn ngữ ưa thích</span></label>
+            <select>
+              <option>Tiếng Việt</option>
+              <option>English</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn"><span class="lang-en">Reserve my seat</span><span class="lang-vi">Giữ chỗ của tôi</span></button>
+        <p class="form-note"><span class="lang-en">Preview form — not connected. This is a concept for review.</span><span class="lang-vi">Biểu mẫu xem trước — chưa kết nối. Đây là bản ý tưởng để xem xét.</span></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">Seattle Financial Center</div>
+        <p><span class="lang-en">Financial education and empowerment for families in our community.</span><span class="lang-vi">Giáo dục và trao quyền tài chính cho các gia đình trong cộng đồng.</span></p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4><span class="lang-en">Explore</span><span class="lang-vi">Khám phá</span></h4>
+          <a href="#learn"><span class="lang-en">What you'll learn</span><span class="lang-vi">Bạn sẽ học</span></a>
+          <a href="#workshops"><span class="lang-en">Workshops</span><span class="lang-vi">Lớp học</span></a>
+          <a href="#who"><span class="lang-en">Who we help</span><span class="lang-vi">Chúng tôi giúp</span></a>
+        </div>
+        <div>
+          <h4><span class="lang-en">Get started</span><span class="lang-vi">Bắt đầu</span></h4>
+          <a href="#reserve"><span class="lang-en">Reserve a seat</span><span class="lang-vi">Giữ chỗ</span></a>
+          <a href="#reserve"><span class="lang-en">Free consultation</span><span class="lang-vi">Tư vấn miễn phí</span></a>
+        </div>
+        <div>
+          <h4><span class="lang-en">Visit us</span><span class="lang-vi">Ghé thăm</span></h4>
+          <a style="opacity:.86;cursor:default">Seattle Financial Center in Bellevue</a>
+          <a style="opacity:.86;cursor:default">2700 Richards Rd #204</a>
+          <a style="opacity:.86;cursor:default">Bellevue, WA 98005</a>
+          <a href="tel:+12069156530">(206) 915-6530</a>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer" style="font-style:italic;color:rgba(247,242,231,.55);margin-bottom:14px">
+      <span class="lang-en"><b>Concept preview</b> — a design draft for discussion, not published or endorsed. Educational only; not financial, tax, or legal advice. Please consult your own qualified professional about your situation.</span>
+      <span class="lang-vi"><b>Bản xem trước ý tưởng</b> — bản nháp để thảo luận, chưa đăng hoặc phê duyệt. Chỉ mang tính giáo dục; không phải lời khuyên tài chính, thuế hoặc pháp lý. Vui lòng tham khảo chuyên gia của riêng bạn.</span>
+    </p>
+    <p class="disclaimer">World System Builder is an organization that is comprised of individuals associated with World Financial Group Insurance Agency, LLC and World Financial Group, Inc., but it is not an affiliated company of World Financial Group, Inc., WFGIA, (In California dba World Financial Insurance Agency, LLC.), World Financial Group Insurance Agency of Hawaii, Inc., World Financial Group Insurance Agency of Massachusetts, Inc. nor WFG Insurance Agency of Puerto Rico, Inc. (collectively referred to as “WFG”). These agents offer insurance products through World Financial Group Insurance Agency, Inc., World Financial Group Insurance Agency of Hawaii, Inc., World Financial Group Insurance Agency of Massachusetts, Inc., (In California dba World Financial Insurance Agency, LLC) and/or WFG Insurance Agency of Puerto Rico, Inc. – collectively WFGIA. WSB Headquarters: 2099 Gold Street, Alviso, CA 95002. Phone: 408.941.1838. WFGIA Headquarters: 6400 C Street SW, Cedar Rapids, IA 52499. Phone: 770.453.9300.</p>
+    <div class="foot-legal">
+      <span>© 2026 Seattle Financial Center — <span class="lang-en">Concept preview by HuyBuilds Studio</span><span class="lang-vi">Bản xem trước ý tưởng bởi HuyBuilds Studio</span></span>
+      <span class="lang-en">Draft · Not for publication</span><span class="lang-vi">Bản nháp · Chưa để đăng</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.classList.toggle('vi', l==='vi');
+    document.documentElement.lang = l==='vi' ? 'vi' : 'en';
+    document.getElementById('en-btn').classList.toggle('on', l==='en');
+    document.getElementById('vi-btn').classList.toggle('on', l==='vi');
+    document.querySelectorAll('input[data-en]').forEach(function(i){
+      i.placeholder = l==='vi' ? i.getAttribute('data-vi') : i.getAttribute('data-en');
+    });
+  }
+  function previewSubmit(e){
+    e.preventDefault();
+    var vi = document.body.classList.contains('vi');
+    alert(vi ? 'Cảm ơn bạn! Đây là bản xem trước — biểu mẫu chưa kết nối.'
+             : 'Thank you! This is a preview — the form isn\'t connected yet.');
+    return false;
+  }
+
+  // topics
+  var topics = [
+    {en:'Increase Cash Flow', vi:'Tăng Dòng Tiền', en2:"It's not how much you earn, but how much you keep.", vi2:'Không phải kiếm bao nhiêu, mà giữ được bao nhiêu.'},
+    {en:'Debt Management', vi:'Quản Lý Nợ', en2:'Understand, control and reduce your debt.', vi2:'Hiểu, kiểm soát và giảm nợ của bạn.'},
+    {en:'Strong Financial Foundation', vi:'Nền Tảng Tài Chính Vững Chắc', en2:'Like building a house, build it from the ground up.', vi2:'Như xây nhà, phải xây từ nền móng.'},
+    {en:'Proper Protection', vi:'Bảo Vệ Đúng Cách', en2:'Know how much you need and what fits you.', vi2:'Biết bạn cần bao nhiêu và điều gì phù hợp.'},
+    {en:'Building Wealth', vi:'Xây Dựng Tài Sản', en2:'Learn how to build and grow your money.', vi2:'Học cách xây dựng và phát triển tài sản.'},
+    {en:'Asset Accumulation', vi:'Tích Lũy Tài Sản', en2:'How investments and related vehicles work.', vi2:'Cách các công cụ đầu tư hoạt động.'},
+    {en:'Retirement Strategies', vi:'Chiến Lược Hưu Trí', en2:'"Hope" isn\'t a strategy — plan it properly.', vi2:'"Hy vọng" không phải chiến lược — hãy lên kế hoạch.'},
+    {en:'Wealth Preservation', vi:'Bảo Toàn Tài Sản', en2:'Preserve your wealth for generations to come.', vi2:'Giữ gìn tài sản cho các thế hệ mai sau.'}
+  ];
+  var icon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 018-8M20 11a8 8 0 01-8 8" stroke="#1E7A46" stroke-width="2" stroke-linecap="round"/><path d="M12 8v4l3 2" stroke="#C0913C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.getElementById('topic-grid').innerHTML = topics.map(function(t){
+    return '<div class="topic reveal"><div class="ic">'+icon+'</div><h3><span class="lang-en">'+t.en+'</span><span class="lang-vi">'+t.vi+'</span></h3>'+
+      '<p class="tsub"><span class="lang-en">'+t.en2+'</span><span class="lang-vi">'+t.vi2+'</span></p></div>';
+  }).join('');
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
