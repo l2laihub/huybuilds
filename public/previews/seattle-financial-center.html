@@ -39,7 +39,7 @@
   nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   .brand{display:flex;align-items:center;gap:12px}
   .mark{width:40px;height:40px;flex:0 0 auto}
-  .brand .name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.05;color:var(--forest)}
+  .brand .name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.05;color:var(--forest);white-space:nowrap}
   .brand .name small{display:block;font-family:'Instrument Sans',sans-serif;font-weight:500;
     font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-top:2px}
   .nav-links{display:flex;gap:30px;align-items:center;font-size:15px;font-weight:500}
@@ -186,6 +186,34 @@
 
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  h1,h2{text-wrap:balance}
+
+  /* mobile */
+  @media(max-width:640px){
+    .wrap{padding:0 20px}
+    .preview-bar{font-size:11px;letter-spacing:.08em;padding:6px 12px}
+    nav{height:60px}
+    .mark{width:32px;height:32px}
+    .brand{gap:9px}
+    .brand .name{font-size:15.5px}
+    .brand .name small{font-size:9px;letter-spacing:.14em}
+    .nav-right .btn{display:none}
+    .toggle button{padding:5px 11px}
+    .hero h1 br{display:none}
+    section.pad{padding:56px 0}
+    .hero-inner{padding:44px 0 52px}
+    .sec-head{margin-bottom:36px}
+    .strip .wrap{gap:22px 34px;padding:26px 20px}
+    .strip .n{font-size:25px}
+    .foot-cols{flex-wrap:wrap;gap:26px 40px}
+  }
+  @media(max-width:520px){
+    .hero-cta{flex-direction:column}
+    .hero-cta .btn{width:100%;justify-content:center}
+    .card{padding:24px 20px}
+  }
 </style>
 </head>
 <body>
@@ -230,8 +258,8 @@
     <div>
       <span class="eyebrow"><span class="lang-en">Seattle Financial Center · Bellevue · Now in Vietnamese &amp; English</span><span class="lang-vi">Seattle Financial Center · Bellevue · Nay có tiếng Việt &amp; tiếng Anh</span></span>
       <h1>
-        <span class="lang-en">Financial education for<br>your family's <em>future</em>.</span>
-        <span class="lang-vi block">Giáo dục tài chính cho<br><em>tương lai</em> gia đình bạn.</span>
+        <span class="lang-en">Financial education for <br>your family's <em>future</em>.</span>
+        <span class="lang-vi block">Giáo dục tài chính cho <br><em>tương lai</em> gia đình bạn.</span>
       </h1>
       <p class="lead">
         <span class="lang-en">Free, friendly workshops that make money make sense — taught in Vietnamese and English, for families in our community.</span>
