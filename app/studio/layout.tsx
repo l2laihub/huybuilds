@@ -15,9 +15,9 @@ const hanken = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://studio.huybuilds.app"),
-  title: "HuyBuilds Studio — Websites for local businesses",
+  title: "HuyBuilds Studio — More customers find you online",
   description:
-    "I build your website, run your social media automatically, and handle it all — in English or Vietnamese. Serving Vietnamese-American businesses in Seattle.",
+    "More customers find your shop online — website, Google, and social media, handled for you, in English or Vietnamese. Serving Vietnamese-American businesses in Seattle.",
   icons: {
     icon: [
       { url: "/studio/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/studio/brand/logo-app-icon-180.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "HuyBuilds Studio — Websites for local businesses",
+    title: "HuyBuilds Studio — More customers find you online",
     description:
-      "Websites & online help for local businesses, done for you, in your language.",
+      "More customers find your shop online — website, Google, and social media, handled for you, in your language.",
     url: "https://studio.huybuilds.app",
     siteName: "HuyBuilds Studio",
     type: "website",
