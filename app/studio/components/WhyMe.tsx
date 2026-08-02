@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useT } from "../i18n";
 import { IconCheck } from "./icons";
 
-const BULLETS = ["why1", "why2", "why3", "why4", "why5"] as const;
+const BULLETS = ["why1", "why2", "why3", "why4", "why5", "why6"] as const;
 
 export function WhyMe() {
   const t = useT();
