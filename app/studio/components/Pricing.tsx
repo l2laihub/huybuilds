@@ -13,6 +13,8 @@ type Plan = {
   /** Payment terms shown directly under the price (e.g. the $600/$600 split). */
   split?: StringKey;
   badge?: StringKey;
+  /** First bullet with a bold lead-in (e.g. "Everything in Keep It Running — …"). */
+  featureLead?: { bold: StringKey; rest: StringKey };
   features: StringKey[];
   cta: StringKey;
   /** Fine print under the CTA (e.g. the $400 credit toward Get Found). */
@@ -26,7 +28,8 @@ const PLANS: Plan[] = [
   { name: "p2Name", tag: "p2Tag", price: "p2Price", per: "p2Per", split: "p2Split",
     features: ["p2f1", "p2f2", "p2f3", "p2f4", "p2f5", "p2f6"], cta: "p2Cta", variant: "default" },
   { name: "p3Name", tag: "p3Tag", price: "p3Price", per: "p3Per", split: "p3Split", badge: "p3Badge",
-    features: ["p3f1", "p3f2", "p3f3", "p3f4", "p3f5", "p3f6", "p3f7"], cta: "p3Cta", variant: "hi" },
+    featureLead: { bold: "p3f1Bold", rest: "p3f1Rest" },
+    features: ["p3f2", "p3f3", "p3f4", "p3f5", "p3f6"], cta: "p3Cta", variant: "hi" },
   { name: "p4Name", tag: "p4Tag", price: "p4Price", pricePrefix: "p4PricePrefix", split: "p4Split",
     features: ["p4f1", "p4f2", "p4f3", "p4f4", "p4f5", "p4f6"], cta: "p4Cta", variant: "default" },
 ];
@@ -70,6 +73,12 @@ export function Pricing() {
                 {plan.split ? t(plan.split) : " "}
               </p>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
+                {plan.featureLead && (
+                  <li style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 14.5 }}>
+                    <IconCheck className="w-4 h-4" style={{ color: "var(--st-sage)", flex: "none", marginTop: 3 }} />
+                    <span><strong>{t(plan.featureLead.bold)}</strong>{t(plan.featureLead.rest)}</span>
+                  </li>
+                )}
                 {plan.features.map((f) => (
                   <li key={f} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 14.5 }}>
                     <IconCheck className="w-4 h-4" style={{ color: "var(--st-sage)", flex: "none", marginTop: 3 }} />
@@ -100,13 +109,8 @@ export function Pricing() {
             <p style={{ fontSize: 16, fontWeight: 800 }}>{t("addonName")}</p>
             <p style={{ fontSize: 15, marginTop: 4, lineHeight: 1.55 }}>{t("addonBody")}</p>
             <p style={{ fontSize: 14, color: "var(--st-muted)", marginTop: 6 }}>{t("addonNote")}</p>
+            <p style={{ fontSize: 14, fontWeight: 700, marginTop: 6 }}>{t("addonIncluded")}</p>
           </div>
-        </div>
-
-        <div style={{ marginTop: 18, background: "#F6E5DC", border: "1px solid #E9CDBF", borderRadius: 22, padding: "22px 26px" }}>
-          <h3 style={{ fontSize: 17, fontWeight: 800 }}>{t("finTitle")}</h3>
-          <p style={{ fontSize: 17, fontWeight: 700, marginTop: 8 }}>{t("finLead")}</p>
-          <p style={{ fontSize: 14.5, color: "#6B4D3F", marginTop: 8 }}>{t("finBody")}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-5 min-[920px]:grid-cols-2" style={{ marginTop: 28 }}>
