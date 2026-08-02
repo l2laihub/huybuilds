@@ -15,12 +15,14 @@ type Plan = {
   badge?: StringKey;
   features: StringKey[];
   cta: StringKey;
+  /** Fine print under the CTA (e.g. the $400 credit toward Get Found). */
+  note?: StringKey;
   variant: "start" | "default" | "hi";
 };
 
 const PLANS: Plan[] = [
   { name: "p1Name", tag: "p1Tag", price: "p1Price", per: "p1Per", badge: "p1Badge",
-    features: ["p1f1", "p1f2", "p1f3", "p1f4", "p1f5", "p1f6"], cta: "p1Cta", variant: "start" },
+    features: ["p1f1", "p1f2", "p1f3", "p1f4", "p1f5", "p1f6"], cta: "p1Cta", note: "p1Note", variant: "start" },
   { name: "p2Name", tag: "p2Tag", price: "p2Price", per: "p2Per", split: "p2Split",
     features: ["p2f1", "p2f2", "p2f3", "p2f4", "p2f5", "p2f6"], cta: "p2Cta", variant: "default" },
   { name: "p3Name", tag: "p3Tag", price: "p3Price", per: "p3Per", split: "p3Split", badge: "p3Badge",
@@ -80,6 +82,11 @@ export function Pricing() {
                 style={{ marginTop: 20, width: "100%", minHeight: 48, fontSize: 16 }}>
                 {t(plan.cta)}
               </a>
+              {plan.note && (
+                <p style={{ fontSize: 13, lineHeight: 1.5, color: "var(--st-muted)", fontStyle: "italic", marginTop: 12 }}>
+                  {t(plan.note)}
+                </p>
+              )}
             </div>
           ))}
         </div>
