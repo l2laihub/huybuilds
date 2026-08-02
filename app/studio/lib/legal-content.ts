@@ -158,7 +158,7 @@ export const TERMS: Record<StudioLang, LegalDoc> = {
       {
         heading: "Our services",
         body: [
-          "We provide website design, website hosting, and social media management for local businesses, on a month-to-month basis. The specific work included depends on the plan you choose and what we agree to with you directly.",
+          "We provide Google Business Profile setup, website design, website hosting, and social media management for local businesses. One-time projects are quoted upfront; ongoing services are month-to-month. The specific work included depends on the plan you choose and what we agree to with you directly.",
         ],
       },
       {
@@ -227,7 +227,7 @@ export const TERMS: Record<StudioLang, LegalDoc> = {
       {
         heading: "Dịch vụ của chúng tôi",
         body: [
-          "Chúng tôi cung cấp dịch vụ thiết kế website, lưu trữ website, và quản lý mạng xã hội cho các doanh nghiệp địa phương, theo từng tháng. Phần công việc cụ thể tùy thuộc vào gói anh chị/cô chú chọn và những gì chúng ta thỏa thuận trực tiếp.",
+          "Chúng tôi cung cấp dịch vụ cài đặt trang Google (Google Business Profile), thiết kế website, lưu trữ website, và quản lý mạng xã hội cho các doanh nghiệp địa phương. Dự án một lần được báo giá trước; dịch vụ định kỳ tính theo từng tháng. Phần công việc cụ thể tùy thuộc vào gói anh chị/cô chú chọn và những gì chúng ta thỏa thuận trực tiếp.",
         ],
       },
       {
