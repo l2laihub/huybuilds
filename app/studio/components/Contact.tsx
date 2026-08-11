@@ -1,14 +1,15 @@
 "use client";
 
 import { useT } from "../i18n";
-import { CONTACT, smsHref, mailtoHref } from "../config";
+import { CONTACT, smsHref, telHref, mailtoHref } from "../config";
 import { track } from "../lib/analytics";
 import { ContactForm } from "./ContactForm";
 
 export function Contact() {
   const t = useT();
   const rows = [
-    { href: smsHref(CONTACT.phoneDisplay), label: t("cCall"), value: CONTACT.phoneDisplay, primary: true, method: "call" },
+    { href: smsHref(CONTACT.phoneDisplay), label: t("cText"), value: CONTACT.phoneDisplay, primary: true, method: "text" },
+    { href: telHref(CONTACT.phoneDisplay), label: t("cCall"), value: CONTACT.phoneDisplay, primary: false, method: "call" },
     { href: CONTACT.facebookUrl, label: t("cFb"), value: CONTACT.facebookDisplay, primary: false, method: "facebook" },
     { href: mailtoHref(CONTACT.email), label: t("cEmail"), value: CONTACT.email, primary: false, method: "email" },
   ];
