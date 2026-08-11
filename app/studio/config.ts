@@ -5,7 +5,7 @@
 export const CONTACT = {
   phoneDisplay: "(425) 998-7191",
   facebookUrl: "https://www.facebook.com/profile.php?id=61591364631052",
-  facebookDisplay: "fb.com/huybuilds-studio",
+  facebookDisplay: "Messenger",
   email: "studio@huybuilds.app",
 } as const;
 
@@ -20,6 +20,10 @@ export function telDigits(display: string): string {
 
 export function smsHref(display: string): string {
   return `sms:${telDigits(display)}`;
+}
+
+export function telHref(display: string): string {
+  return `tel:${telDigits(display)}`;
 }
 
 export function mailtoHref(email: string): string {

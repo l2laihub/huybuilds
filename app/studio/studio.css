@@ -1,7 +1,17 @@
 .studio-theme {
-  --st-terracotta: #C2603A;
-  --st-terracotta-dark: #A44E2D;
-  --st-sage: #6E8C5A;
+  /*
+   * Terracotta and sage are text and button-fill colours, so they carry a
+   * WCAG AA floor (4.5:1) against every background they land on — white,
+   * offwhite and sand. The previous #C2603A / #6E8C5A pair measured 4.18 and
+   * 3.78 on white, which failed every CTA label on the page. Terracotta is now
+   * the value that used to be --st-terracotta-dark (already proven in place by
+   * the form error text); the hover shade moved a step deeper to keep the
+   * state change visible.
+   * Amber stays as-is: it is only ever a decorative fill, never text.
+   */
+  --st-terracotta: #A44E2D;
+  --st-terracotta-dark: #8C4126;
+  --st-sage: #557040;
   --st-amber: #CC9A46;
   --st-ink: #2C2620;
   --st-muted: #6E6358;
@@ -72,6 +82,52 @@
 .st-btn-outline:hover {
   background: var(--st-terracotta);
   color: #fff;
+}
+
+/*
+ * Pricing plan grid.
+ *
+ * Cards opt into the parent's rows via subgrid so the price, bullet block and
+ * CTA stay flush across siblings no matter how the tag above them wraps —
+ * Vietnamese runs to three lines where English runs to two, which previously
+ * shifted one card's price 25px out of line with the rest. `1fr` on the bullet
+ * row is what pins every CTA to a shared baseline.
+ *
+ * Without subgrid support the declaration is dropped and each card falls back
+ * to its own auto rows: the old (misaligned but readable) behaviour.
+ */
+.st-plans {
+  display: grid;
+  gap: 20px;
+}
+
+/*
+ * Shared rows only once the cards are actually side by side. In a single
+ * column there is nothing to align against, and reserving a row for a line
+ * this card doesn't have (Google First has no payment-split line, Get Found
+ * does) just opens a dead gap under the price.
+ */
+@media (min-width: 620px) {
+  .st-plans { grid-template-rows: auto auto auto auto 1fr auto auto; }
+  .st-plans-2,
+  .st-plans-3 { grid-template-columns: repeat(2, 1fr); }
+  .st-plan {
+    display: grid;
+    grid-row: span 7;
+    grid-template-rows: subgrid;
+  }
+}
+@media (min-width: 700px) {
+  .st-plans-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Band label above each pricing group ("Pay once" / "Monthly"). */
+.st-band-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--st-muted);
 }
 
 /*
