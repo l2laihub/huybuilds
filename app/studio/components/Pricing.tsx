@@ -21,7 +21,7 @@ type Plan = {
   cta: StringKey;
   /** Fine print above the CTA (e.g. the $400 credit toward Get Found). */
   note?: StringKey;
-  variant: "start" | "default" | "hi";
+  variant: "default" | "hi";
 };
 
 /*
@@ -32,7 +32,7 @@ type Plan = {
  */
 const PAY_ONCE: Plan[] = [
   { name: "p1Name", tag: "p1Tag", price: "p1Price", per: "p1Per", badge: "p1Badge",
-    features: ["p1f1", "p1f2", "p1f3", "p1f4", "p1f5", "p1f6"], cta: "p1Cta", note: "p1Note", variant: "start" },
+    features: ["p1f1", "p1f2", "p1f3", "p1f4", "p1f5", "p1f6"], cta: "p1Cta", note: "p1Note", variant: "default" },
   { name: "p2Name", tag: "p2Tag", price: "p2Price", per: "p2Per", split: "p2Split",
     features: ["p2f1", "p2f2", "p2f3", "p2f4", "p2f5", "p2f6"], cta: "p2Cta", variant: "default" },
   { name: "p4Name", tag: "p4Tag", price: "p4Price", pricePrefix: "p4PricePrefix", split: "p4Split",
@@ -47,8 +47,16 @@ const MONTHLY: Plan[] = [
     features: [], body: "addonBody", cta: "addonCta", note: "addonIncluded", variant: "default" },
 ];
 
+/*
+ * One highlighted card only, and it is Stay Visible — the monthly plan is where
+ * the business is trying to land people. Google First carries a "Start here"
+ * badge instead of a card treatment: it is the door onto that ladder ($400
+ * credits in full toward Get Found), so it has to look like a real option, not
+ * a lesser one. It was previously dashed on a tinted ground, which read as
+ * provisional and argued against the section's own "most shops start with
+ * Google" line.
+ */
 const CARD_STYLE: Record<Plan["variant"], React.CSSProperties> = {
-  start: { border: "1.5px dashed var(--st-line)", background: "var(--st-offwhite)" },
   default: { border: "1px solid var(--st-line)", boxShadow: "0 4px 18px rgba(43,36,32,.05)" },
   hi: { border: "2px solid var(--st-terracotta)", boxShadow: "0 12px 30px rgba(164,78,45,.18)" },
 };
@@ -89,7 +97,10 @@ function PlanCard({ plan }: { plan: Plan }) {
       </div>
 
       <p style={{ fontSize: 13.5, fontWeight: 600, color: "var(--st-terracotta)", marginTop: 6, marginBottom: 16 }}>
-        {plan.split ? t(plan.split) : " "}
+        {/* Rendered even when empty so every card keeps the same subgrid row
+            count; empty rather than a non-breaking space so it collapses on
+            mobile, where cards stack and there is no row to reserve. */}
+        {plan.split ? t(plan.split) : ""}
       </p>
 
       {plan.body ? (
