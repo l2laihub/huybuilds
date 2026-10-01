@@ -41,12 +41,12 @@ const projects: Project[] = [
   {
     title: "MTAC Intel Copilot",
     description:
-      "Led development of Microsoft's first production system implementing GraphRAG technology. Built for intelligence analysis with quantifiable workflow improvements.",
-    tags: ["GraphRAG", "Azure", "Python", "GPT-4"],
+      "Productionized a Microsoft Research GraphRAG prototype into the first end-to-end GraphRAG application in production in its org — C#/.NET orchestration, security for a network-isolated environment, and performance. Returned for v2 to build Databricks indexing pipelines, cross-stage validation, and an LLM-as-judge eval gate in the release pipeline.",
+    tags: ["GraphRAG", "C#/.NET", "Python", "Azure OpenAI", "Databricks"],
     metrics: [
-      { value: 50, suffix: "%", label: "Faster Analysis" },
-      { value: 60, suffix: "%", label: "Cost Reduction" },
-      { label: "1st Production GraphRAG" },
+      { value: 2, suffix: "×", label: "Faster Theme Retrieval" },
+      { value: 2, suffix: " yrs", label: "In Production" },
+      { label: "LLM Eval Gate in CI" },
     ],
     featured: true,
     Logo: MTACLogo,

@@ -9,13 +9,13 @@ const services = [
     icon: AIIcon,
     title: "AI/ML Systems",
     description:
-      "Custom AI solutions including RAG pipelines, LLM integrations, and intelligent automation. Built Microsoft's first production GraphRAG system.",
+      "RAG pipelines, LLM integrations, evaluation harnesses, and agentic tooling. Productionized a Microsoft Research GraphRAG prototype in a network-isolated environment.",
   },
   {
     icon: CodeIcon,
     title: "Full-Stack Development",
     description:
-      "End-to-end web applications with modern frameworks. React, Next.js, Node.js, Python, and cloud-native architectures on Azure and AWS.",
+      "End-to-end web applications with modern frameworks. React, Next.js, TypeScript, Python, and Supabase/Postgres with row-level security.",
   },
   {
     icon: ServerIcon,
@@ -27,13 +27,13 @@ const services = [
     icon: DataIcon,
     title: "Data Pipelines",
     description:
-      "ETL workflows, data processing systems, and analytics infrastructure. Transform raw data into actionable intelligence.",
+      "Databricks (PySpark, Spark SQL) orchestrated by Azure Data Factory, with cross-stage validation that catches silent data loss.",
   },
   {
     icon: RocketIcon,
     title: "MVP Development",
     description:
-      "Rapid prototyping and product development. Shipped 9 production apps in 2025. Turn your idea into a working product fast.",
+      "Rapid prototyping and product development. 7+ production AI apps shipped solo. Turn your idea into a working product fast.",
   },
   {
     icon: ConsultIcon,

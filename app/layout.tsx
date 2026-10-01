@@ -23,9 +23,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "huybuilds — Senior Software Engineer & AI Builder",
+  title: "Huy Duong — Senior Full-Stack & AI Engineer",
   description:
-    "15+ years crafting enterprise software. Specializing in AI/ML systems, GraphRAG, full-stack development, and turning complex technical challenges into elegant solutions.",
+    "I take AI research prototypes into production. 15+ years of production engineering — C#/.NET and Azure, increasingly Python and TypeScript.",
   keywords: [
     "Software Engineer",
     "AI Developer",
@@ -46,18 +46,18 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "huybuilds — Senior Software Engineer & AI Builder",
+    title: "Huy Duong — Senior Full-Stack & AI Engineer",
     description:
-      "15+ years crafting enterprise software. Specializing in AI/ML systems and full-stack development.",
+      "I take AI research prototypes into production. 15+ years of production engineering — C#/.NET and Azure, increasingly Python and TypeScript.",
     url: "https://huybuilds.app",
     siteName: "huybuilds",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "huybuilds — Senior Software Engineer & AI Builder",
+    title: "Huy Duong — Senior Full-Stack & AI Engineer",
     description:
-      "15+ years crafting enterprise software. Specializing in AI/ML systems and full-stack development.",
+      "I take AI research prototypes into production. 15+ years of production engineering — C#/.NET and Azure, increasingly Python and TypeScript.",
   },
 };
 
