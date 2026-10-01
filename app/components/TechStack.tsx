@@ -8,12 +8,13 @@ const techCategories = [
     name: "AI / ML",
     techs: [
       { name: "GraphRAG", icon: "📊" },
-      { name: "OpenAI", icon: "🤖" },
+      { name: "Azure OpenAI", icon: "🤖" },
       { name: "GPT-4", icon: "💬" },
       { name: "Gemini 2.5", icon: "✨" },
       { name: "Claude", icon: "🧠" },
       { name: "LangChain", icon: "🔗" },
       { name: "Vector DBs", icon: "📐" },
+      { name: "LLM Evals", icon: "🧪" },
     ],
   },
   {
@@ -52,6 +53,8 @@ const techCategories = [
       { name: "Supabase", icon: "⚡" },
       { name: "Redis", icon: "🔴" },
       { name: "Cosmos DB", icon: "🌌" },
+      { name: "Databricks", icon: "🧱" },
+      { name: "PySpark", icon: "✴️" },
       { name: "Stripe", icon: "💳" },
     ],
   },

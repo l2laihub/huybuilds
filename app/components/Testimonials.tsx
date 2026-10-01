@@ -54,10 +54,10 @@ export function Testimonials() {
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white mb-4">
-            Client Feedback
+            Kind Words
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl">
-            What clients say about working together.
+            From clients and former colleagues.
           </p>
         </SectionReveal>
 

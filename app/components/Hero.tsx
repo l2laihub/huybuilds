@@ -8,8 +8,8 @@ import { AnimatedText } from "./ui/AnimatedText";
 
 const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 9, suffix: "", label: "Apps in 2025" },
-  { value: 50, suffix: "%", label: "LLM Cost Reduced" },
+  { value: 7, suffix: "+", label: "AI Products Shipped" },
+  { value: 2, suffix: " yrs", label: "GraphRAG in Production" },
 ];
 
 export function Hero() {
@@ -28,14 +28,14 @@ export function Hero() {
             >
               <div className="w-8 md:w-12 h-0.5 bg-amber-500" />
               <span className="font-mono text-xs md:text-sm text-amber-500 tracking-wider uppercase">
-                Senior Software Engineer
+                Senior Full-Stack & AI Engineer
               </span>
             </motion.div>
 
             {/* Headline */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
               <AnimatedText
-                text="I build intelligent systems that solve real problems."
+                text="I take AI research prototypes into production."
                 className="text-white"
                 delay={0.2}
               />
@@ -48,8 +48,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg md:text-xl text-zinc-400 mb-8 max-w-xl leading-relaxed"
             >
-              15+ years crafting enterprise software. Specializing in AI/ML systems,
-              GraphRAG, and turning complex challenges into elegant solutions.
+              15+ years of production engineering — C#/.NET and Azure, increasingly
+              Python and TypeScript. Open to senior IC roles, full-time or contract.
             </motion.p>
 
             {/* Stats */}
@@ -78,7 +78,7 @@ export function Hero() {
             >
               <MagneticButton href="#contact">
                 <span className="inline-flex items-center gap-2 px-6 py-3.5 bg-amber-500 text-zinc-900 rounded-lg font-semibold hover:bg-amber-400 transition-all duration-200 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40">
-                  Start a Project
+                  Get in Touch
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -122,7 +122,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
           </span>
-          <span className="text-xs text-zinc-400">Available</span>
+          <span className="text-xs text-zinc-400">Open to work</span>
         </div>
       </motion.div>
     </section>
