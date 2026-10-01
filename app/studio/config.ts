@@ -6,6 +6,13 @@ export const CONTACT = {
   phoneDisplay: "(425) 998-7191",
   facebookUrl: "https://www.facebook.com/profile.php?id=61591364631052",
   facebookDisplay: "Messenger",
+  instagramUrl: "https://www.instagram.com/huybuildsstudio/",
+  /** Behold.so feed id for @huybuildsstudio. Empty hides the Instagram section
+   *  entirely — also the graceful path if the feed ever dies.
+   *  Live id: GYVB1Dw6xIw02bERRFim — paste it back when the account has ~9+
+   *  posts (three full rows of the 3-up grid). Fewer reads as thin next to the
+   *  3-posts-a-week promise on the pricing card. Held off 2026-09-08. */
+  instagramFeedId: "" as string,
   email: "studio@huybuilds.app",
 } as const;
 

@@ -5,6 +5,7 @@ describe("contact config", () => {
   it("exposes the contact handles", () => {
     expect(CONTACT.phoneDisplay).toBeTruthy();
     expect(CONTACT.facebookUrl).toMatch(/^https?:\/\//);
+    expect(CONTACT.instagramUrl).toMatch(/^https?:\/\//);
     expect(CONTACT.email).toContain("@");
   });
   it("strips formatting from the sms href", () => {
